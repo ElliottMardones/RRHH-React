@@ -2,12 +2,10 @@
 
 Proyecto para la asignatura RRHH
 
-<<<<<<< HEAD
-
 1) Requisito NODE
 -recomiendo usar NVM 
  https://github.com/creationix/nvm
-=======
+
 ## Scripts
 
 En el directorio del proyecto se pueden ejecutar los siguientes comandos:
@@ -67,4 +65,3 @@ Ejecuta el servidor y el cliente en modo de desarrollo, se ejecuta en una termin
 Ambos se reiniciaran cada vez que se realicen cambios.
 
 **Nota: No ejecutar el comando `sh-dev` en una terminal PowerShell. Puede generar graves errores!!**
->>>>>>> dev-infraestructura
