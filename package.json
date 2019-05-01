@@ -4,14 +4,11 @@
   "description": "Plataforma de Capacitación Virtual para Recursos Humanos.",
   "main": "server.js",
   "scripts": {
-    "ps-client-install": "npm install --prefix=\"client\"",
-    "sh-client-install": "npm install --prefix client",
+    "install-all": "node install-all.js",
     "start": "node server.js",
     "server": "nodemon server.js",
-    "ps-client": "npm start --prefix=\"client\"",
-    "sh-client": "npm start --prefix client",
-    "ps-dev": "concurrently \"npm run server\" \"npm run ps-client\"",
-    "sh-dev": "concurrently \"npm run server\" \"npm run sh-client\""
+    "client": "node run-client.js",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "repository": {
     "type": "git",
