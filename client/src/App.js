@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import Header from './component/Header';
 import HomeContent from "./component/HomeContent";
 import LoginContent from "./component/LoginContent";
+import Page1Content from "./component/Page1Content";
+import Page2Content from "./component/Page2Content";
 import './App.css';
 
 class App extends Component {
@@ -72,6 +74,8 @@ class App extends Component {
         <main className="scrollbar scrollbar-default">
           <HomeContent stateApp={this.state} setStateApp={this.setStateApp.bind(this)} ref="HomeContent" />
           <LoginContent stateApp={this.state} setStateApp={this.setStateApp.bind(this)} ref="LoginContent" />
+          <Page1Content stateApp={this.state} setStateApp={this.setStateApp.bind(this)} ref="Page1Content" />
+          <Page2Content stateApp={this.state} setStateApp={this.setStateApp.bind(this)} ref="Page2Content" />
         </main>
       </div>
     );

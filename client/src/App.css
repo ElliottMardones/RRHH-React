@@ -16,3 +16,9 @@ body {
     -o-background-size: 100% 100vh;
     background-size: 100% 100vh;
 }
+
+.Page1Content{
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
