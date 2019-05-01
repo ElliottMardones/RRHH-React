@@ -10,7 +10,8 @@ class App extends Component {
     /*
     this.state = {
       session: null,
-      filterNull: (e => e !== null)
+      filterNull: (e => e !== null),
+      showContent: this.showContent.bind(this)
     }
     */
     this.state = {

@@ -45,6 +45,12 @@ class LoginContent extends Component {
         this.setState({ loginMessage });
     }
 
+    onEntry() {
+        this.props.setStateApp({
+            session: null
+        });
+    }
+
     onLeave() {
         this.state.loginMessage.toggle();
     }
