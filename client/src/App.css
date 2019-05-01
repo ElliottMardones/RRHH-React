@@ -16,3 +16,17 @@ body {
     -o-background-size: 100% 100vh;
     background-size: 100% 100vh;
 }
+.text-muted{
+  background-color: black;
+  position: absolute;
+  bottom: 1000;
+  width: 100%;
+  height: 100px;
+  color: white;
+}
+
+.Page1Content {
+  
+  margin: auto;
+  width: 90%;
+}

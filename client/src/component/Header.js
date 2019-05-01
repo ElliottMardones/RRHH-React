@@ -46,22 +46,25 @@ class Header extends Component {
         const { session, filterNull } = this.props.stateApp;
         let nis = []
         nis = nis.concat([
-            { href: "/#HomeContent", title: "Inicio", fa: "home" },
+            { href: "/HomeContent", title: "Inicio", fa: "home" },
         ]);
         if (session) {
-
+            const url = new URL(document.location)
+            const hasId = url.searchParams.has('id')
+            console.log(url)
+            console.log(hasId)
             if (session.type === "admin") {
                 nis = nis.concat([
-                    { href: "/#AdminContent", title: "Administración", fa: "users" }
+                    { href: "Administracion", title: "Administración", fa: "users" }
                 ]);
             } else if (session.type === "user") {
                 nis = nis.concat([
-                    { href: "/#CoursesContent", title: "Cursos", fa: "th-list" }
+                    { href: "/CoursesContent", title: "Cursos", fa: "th-list" }
                 ]);
             }
             nis = nis.concat([
-                { href: "/#Page1Content", title: "Pagina 1" },
-                { href: "/#Page2Content", title: "Pagina 2" }
+                { href: "/Page1Content", title: "Pagina 1" },
+                { href: "/Page2Content", title: "Pagina 2" }
             ]);
         }
         return nis.map(this.getNavItem).filter(filterNull);
@@ -72,12 +75,12 @@ class Header extends Component {
         let nis = []
         if (session) {
             nis = nis.concat([
-                { href: "/#MessagesContent", title: "Mensajes", fa: "envelope", count: 1 },
-                { href: "/#NotificationsContent", title: "Notificaciones", fa: "bell", count: 2 }
+                { href: "/MessagesContent", title: "Mensajes", fa: "envelope", count: 1 },
+                { href: "/NotificationsContent", title: "Notificaciones", fa: "bell", count: 2 }
             ]);
         } else {
             nis = nis.concat([
-                { href: "/#LoginContent", title: "Entrar", fa: "sign-in" },
+                { href: "/LoginContent", title: "Entrar", fa: "sign-in" },
             ]);
         }
         return nis.map(this.getNavItem).filter(filterNull);
