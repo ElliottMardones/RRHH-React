@@ -30,3 +30,6 @@ body {
   height: 100px;
   color: white;
 }
+br {
+  line-height: 15px !important;
+}
