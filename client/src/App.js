@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Header from './component/Header';
+import Footer from './component/Footer';
 import HomeContent from "./component/HomeContent";
 import LoginContent from "./component/LoginContent";
 import Page1Content from "./component/Page1Content";
@@ -71,11 +72,13 @@ class App extends Component {
     return (
       <div className="App">
         <Header stateApp={this.state} setStateApp={this.setStateApp.bind(this)} />
+
         <main className="scrollbar scrollbar-default">
           <HomeContent stateApp={this.state} setStateApp={this.setStateApp.bind(this)} ref="HomeContent" />
           <LoginContent stateApp={this.state} setStateApp={this.setStateApp.bind(this)} ref="LoginContent" />
           <Page1Content stateApp={this.state} setStateApp={this.setStateApp.bind(this)} ref="Page1Content" />
           <Page2Content stateApp={this.state} setStateApp={this.setStateApp.bind(this)} ref="Page2Content" />
+          <Footer stateApp={this.state} setStateApp={this.setStateApp.bind(this)} />
         </main>
       </div>
     );
