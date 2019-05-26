@@ -1,7 +1,9 @@
 main {
     margin-top: 56px;
     padding-top: 20px;
+    min-height: calc(100vh - 56px);
     height: calc(100vh - 56px);
+    max-height: calc(100vh - 56px);
     width: 100%;
 }
 

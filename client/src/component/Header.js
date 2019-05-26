@@ -21,7 +21,8 @@ class Header extends Component {
         this.toggle = this.toggle.bind(this);
         this.handlerLinkClick = this.handlerLinkClick.bind(this);
         this.state = {
-            isOpen: false
+            isOpen: false,
+            selectedNavWidget: null
         };
     }
 
@@ -43,7 +44,7 @@ class Header extends Component {
     getNavItem(element, index) {
         if (element) {
             return (
-                <NavItem key={index}>
+                <NavItem key={index} className={(element.href.split('#')[1]) === this.state.selectedNavWidget ? "nav-item active" : "nav-item"}>
                     <NavLink href={element.href} onClick={this.handlerLinkClick}>
                         {(element.fa) ? (<span className={"fa fa-" + element.fa} />) : null} {element.title} {(element.count) ? (<Badge color="light" pill>{element.count}</Badge>) : null}
                     </NavLink>
