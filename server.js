@@ -2,9 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 
-// !!!!! EXAMPLE CODE !!!!! //
-const examples = require('./routes/api/examples');
-// ------------------------ //
+const users = require('./routes/api/users');
 
 const app = express();
 
@@ -20,9 +18,7 @@ mongoose.connect(db)
     .catch( (err) => console.log(err) );
 
 // Use Routes
-// !!!!! EXAMPLE CODE !!!!! //
-app.use('/api/examples',examples);
-// ------------------------ //
+app.use('/api/users',users);
 
 const port = process.env.PORT || 5000;
 

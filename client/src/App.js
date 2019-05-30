@@ -4,6 +4,7 @@ import Footer from './component/Footer';
 import HomeContent from "./component/HomeContent";
 import LoginContent from "./component/LoginContent";
 import AdminContent from "./component/AdminContent";
+import AdminUsersContent from "./component/AdminUsersContent";
 import Page1Content from "./component/Page1Content";
 import Page2Content from "./component/Page2Content";
 import './App.css';
@@ -82,6 +83,7 @@ class App extends Component {
           <HomeContent stateApp={this.state} setStateApp={this.setStateApp.bind(this)} ref="HomeContent" />
           <LoginContent stateApp={this.state} setStateApp={this.setStateApp.bind(this)} ref="LoginContent" />
           <AdminContent stateApp={this.state} setStateApp={this.setStateApp.bind(this)} ref="AdminContent" />
+          <AdminUsersContent stateApp={this.state} setStateApp={this.setStateApp.bind(this)} ref="AdminUsersContent" />
           <Page1Content stateApp={this.state} setStateApp={this.setStateApp.bind(this)} ref="Page1Content" />
           <Page2Content stateApp={this.state} setStateApp={this.setStateApp.bind(this)} ref="Page2Content" />
           <br />

@@ -32,6 +32,7 @@ body {
   height: 100px;
   color: white;
 }
+
 br {
   line-height: 15px !important;
 }
@@ -39,4 +40,8 @@ br {
   background-color: white;
   margin:0px auto;
   padding: 30px 20px 20px 0px;
+}
+
+.clickable {
+  cursor: pointer;
 }
