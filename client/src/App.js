@@ -1,16 +1,11 @@
 import React, { Component } from 'react';
 import Header from './component/Header';
 import Footer from './component/Footer';
-import AboutUs from './component/AboutUs';
-import Layout from './component/Layout';
+import HomeContent from "./component/HomeContent";
+import LoginContent from "./component/LoginContent";
+import Page1Content from "./component/Page1Content";
+import Page2Content from "./component/Page2Content";
 import './App.css';
-import { BrowserRouter } from 'react-router-dom';
-import Route from 'react-router-dom/Route';
-
-
-import  Page1Content from './pages/Page1Content'
-
-
 
 class App extends Component {
   constructor(props) {
@@ -18,12 +13,17 @@ class App extends Component {
     /*
     this.state = {
       session: null,
-      filterNull: (e => e !== null)
+      filterNull: (e => e !== null),
+      showContent: this.showContent.bind(this)
     }
     */
     this.state = {
-      session: { type: 'admin' },
-      filterNull: (e => e !== null)
+      session: {
+        type: 'admin',
+        name: 'Alan Brito'
+      },
+      filterNull: (e => e !== null),
+      showContent: this.showContent.bind(this)
     }
   }
 
@@ -31,19 +31,56 @@ class App extends Component {
     this.setState(state, callback);
   }
 
+  showContent(content) {
+    for (const key in this.refs) {
+      if (this.refs.hasOwnProperty(key)) {
+        const ref = this.refs[key];
+        if (ref.state.hasOwnProperty('isVisible')) {
+          if (key === content) {
+            ref.setState(
+              {
+                isVisible: true
+              },
+              ()=>{
+                if (ref.onEntry) {
+                  ref.onEntry();
+                }
+              }
+            );
+          } else {
+            ref.setState(
+              {
+                isVisible: false
+              },
+              ()=>{
+                if (ref.onLeave) {
+                  ref.onLeave();
+                }
+              }
+            );
+          }
+        }
+      }
+    }
+  }
+
+  componentDidMount() {
+    this.showContent("HomeContent")
+  }
+
   render() {
     return (
-      <BrowserRouter>
-        <div className="App">
-          <div>
-            <Header stateApp={this.state} setStateApp={this.setStateApp.bind(this)} />
-            <Route path="/Page1Content" render={()=> <div><Page1Content /> <Layout /></div>  }/>
-            <Route path="/Page2Content" render={()=> <div><h4> HOLA</h4></div>  }/>
-          </div>
-          <AboutUs/>
-          <Footer/>
-        </div>
-      </BrowserRouter>
+      <div className="App">
+        <Header stateApp={this.state} setStateApp={this.setStateApp.bind(this)} />
+
+        <main className="scrollbar scrollbar-default">
+          <HomeContent stateApp={this.state} setStateApp={this.setStateApp.bind(this)} ref="HomeContent" />
+          <LoginContent stateApp={this.state} setStateApp={this.setStateApp.bind(this)} ref="LoginContent" />
+          <Page1Content stateApp={this.state} setStateApp={this.setStateApp.bind(this)} ref="Page1Content" />
+          <Page2Content stateApp={this.state} setStateApp={this.setStateApp.bind(this)} ref="Page2Content" />
+          <Footer stateApp={this.state} setStateApp={this.setStateApp.bind(this)} />
+        </main>
+      </div>
     );
   }
 }
