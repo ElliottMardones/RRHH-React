@@ -7,6 +7,7 @@ import AdminContent from "./component/AdminContent";
 import AdminUsersContent from "./component/AdminUsersContent";
 import Page1Content from "./component/Page1Content";
 import Page2Content from "./component/Page2Content";
+import PageEvaluationContent from "./component/PageEvaluationContent";
 import './App.css';
 
 class App extends Component {
@@ -86,6 +87,7 @@ class App extends Component {
           <AdminUsersContent stateApp={this.state} setStateApp={this.setStateApp.bind(this)} ref="AdminUsersContent" />
           <Page1Content stateApp={this.state} setStateApp={this.setStateApp.bind(this)} ref="Page1Content" />
           <Page2Content stateApp={this.state} setStateApp={this.setStateApp.bind(this)} ref="Page2Content" />
+          <PageEvaluationContent stateApp={this.state} setStateApp={this.setStateApp.bind(this)} ref="PageEvaluationContent" nQuestions='25'/>
           <br />
           <Footer stateApp={this.state} setStateApp={this.setStateApp.bind(this)} />
         </main>
