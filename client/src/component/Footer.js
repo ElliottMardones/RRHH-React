@@ -1,11 +1,9 @@
-import React, { Component } from 'react';
-
+import React,{ Component } from 'react';
 import {
 	Container,
 	Col,
 	Row
 } from 'reactstrap';
-
 
 class Footer extends Component {
 <<<<<<< HEAD
