@@ -1,9 +1,13 @@
 main {
     margin-top: 56px;
     padding-top: 20px;
+<<<<<<< HEAD
     min-height: calc(100vh - 56px);
     height: calc(100vh - 56px);
     max-height: calc(100vh - 56px);
+=======
+    height: calc(100vh - 56px);
+>>>>>>> dev-Ivan
     width: 100%;
 }
 
@@ -32,7 +36,10 @@ body {
   height: 100px;
   color: white;
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> dev-Ivan
 br {
   line-height: 15px !important;
 }
@@ -41,7 +48,10 @@ br {
   margin:0px auto;
   padding: 30px 20px 20px 0px;
 }
+<<<<<<< HEAD
 
 .clickable {
   cursor: pointer;
 }
+=======
+>>>>>>> dev-Ivan

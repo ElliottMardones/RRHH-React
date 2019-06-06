@@ -44,7 +44,11 @@ class Header extends Component {
     getNavItem(element, index) {
         if (element) {
             return (
+<<<<<<< HEAD
                 <NavItem key={index} className={(element.href.split('#')[1]) === this.state.selectedNavWidget ? "nav-item active" : "nav-item"}>
+=======
+                <NavItem key={index}>
+>>>>>>> dev-Ivan
                     <NavLink href={element.href} onClick={this.handlerLinkClick}>
                         {(element.fa) ? (<span className={"fa fa-" + element.fa} />) : null} {element.title} {(element.count) ? (<Badge color="light" pill>{element.count}</Badge>) : null}
                     </NavLink>
@@ -74,7 +78,8 @@ class Header extends Component {
             }
             nis = nis.concat([
                 { href: "/#Page1Content", title: "Pagina 1" },
-                { href: "/#Page2Content", title: "Pagina 2" }
+                { href: "/#Page2Content", title: "Módulo Seguridad" }, 
+                { href: "/#PageEvaluationContent", title: "Evaluación"}
             ]);
         }
         return nis.map(this.getNavItem.bind(this)).filter(filterNull);
