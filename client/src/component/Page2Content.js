@@ -38,14 +38,42 @@ class Page2Content extends Component {
                         <CardText>
                           <ButtonGroup vertical>
                             
-                            
-                            <ButtonDropdown direction="right" isOpen={this.state.btnDropright} toggle={() => { this.setState({ btnDropright: !this.state.btnDropright }); }}>
+                            <ButtonDropdown direction="down" isOpen={this.state.btnDropOne} toggle={() => { this.setState({ btnDropOne: !this.state.btnDropOne }); }}>
                               <DropdownToggle onClick={() => this.onRadioBtnClick(menExtintor)} caret>
                                 Extintor
                               </DropdownToggle>
                               <DropdownMenu>
                                 <DropdownItem onClick={() => this.onRadioBtnClick(menTriangulofuego)}>Triangulo de Fuego</DropdownItem>
                                 <DropdownItem onClick={() => this.onRadioBtnClick(menCadena)}>Reaccion en Cadena</DropdownItem>
+                              </DropdownMenu>
+                            </ButtonDropdown>
+                            
+                            <ButtonDropdown direction="down" isOpen={this.state.btnDropTwo} toggle={() => { this.setState({ btnDropTwo : !this.state.btnDropTwo }); }}>
+                                <DropdownToggle onClick={() => this.onRadioBtnClick(2.0)} caret>
+                                Informacion Seguridad 2
+                                </DropdownToggle>
+                              <DropdownMenu>
+                                <DropdownItem onClick={() => this.onRadioBtnClick(2.1)}>Informacion 2.1</DropdownItem>
+                                <DropdownItem onClick={() => this.onRadioBtnClick(2.2)}>Informacion 2.2</DropdownItem>
+                              </DropdownMenu>
+                            </ButtonDropdown>
+                            
+                            <ButtonDropdown direction="down" isOpen={this.state.btnDropThree} toggle={() => { this.setState({ btnDropThree : !this.state.btnDropThree }); }}>
+                              <DropdownToggle onClick={() => this.onRadioBtnClick(3.0)} caret>
+                                Informacion Seguridad 3
+                              </DropdownToggle>
+                              <DropdownMenu>
+                                <DropdownItem onClick={() => this.onRadioBtnClick(3.1)}>Informacion 3.1</DropdownItem>
+                                <DropdownItem onClick={() => this.onRadioBtnClick(3.2)}>Informacion 3.2</DropdownItem>
+                              </DropdownMenu>
+                            </ButtonDropdown>
+                            <ButtonDropdown direction="down" isOpen={this.state.btnDropFour} toggle={() => { this.setState({ btnDropFour : !this.state.btnDropFour }); }}>
+                              <DropdownToggle onClick={() => this.onRadioBtnClick(4.0)} caret>
+                                Informacion Seguridad 4
+                              </DropdownToggle>
+                              <DropdownMenu>
+                                <DropdownItem onClick={() => this.onRadioBtnClick(4.1)}>Informacion 4.1</DropdownItem>
+                                <DropdownItem onClick={() => this.onRadioBtnClick(4.2)}>Informacion 4.2</DropdownItem>
                               </DropdownMenu>
                             </ButtonDropdown>
                           </ButtonGroup>
