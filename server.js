@@ -1,25 +1,32 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
-
-const users = require('./routes/api/users');
+const cors = require('cors');
+const session = require('express-session');
+const config = require('./config.json');
+const MongoStore = require('connect-mongo')(session);
+const errorHandler = require('./_helpers/error-handler');
 
 const app = express();
 
-// BodyParser Middleware
+// Middlewares
+app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
+app.use(session({
+    secret: config.secret,
+    saveUninitialized: true,
+    resave: true,
+    store: new MongoStore({
+        mongooseConnection: mongoose.connection,
+        ttl: 24 * 60 * 60
+    })
+}));
+app.use(cors());
+app.use('/users', require('./data/users/users.controller'));
+app.use(errorHandler);
 
-// DB Config
-const db = require('./config/keys').mongoURI;
+const port = process.env.NODE_ENV === 'production' ? (process.env.PORT || 80) : 5000;
 
-// Connect to Mongo
-mongoose.connect(db)
-    .then( () => console.log('MongoDB Connected'))
-    .catch( (err) => console.log(err) );
-
-// Use Routes
-app.use('/api/users',users);
-
-const port = process.env.PORT || 5000;
-
-app.listen(port, () => console.log("Server started on port "+port+".") );
+const server = app.listen(port, function () {
+    console.log("Server started on port " + port + ".")
+});

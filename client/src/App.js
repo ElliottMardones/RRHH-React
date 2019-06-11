@@ -8,22 +8,13 @@ import AdminUsersContent from "./component/AdminUsersContent";
 import Page1Content from "./component/Page1Content";
 import Page2Content from "./component/Page2Content";
 import './App.css';
+import Axios from 'axios';
 
 class App extends Component {
   constructor(props) {
     super(props);
-    /*
     this.state = {
-      session: null,
-      filterNull: (e => e !== null),
-      showContent: this.showContent.bind(this)
-    }
-    */
-    this.state = {
-      session: {
-        type: 'admin',
-        name: 'Alan Brito'
-      },
+      user: null,
       filterNull: (e => e !== null),
       showContent: this.showContent.bind(this)
     }
@@ -72,6 +63,14 @@ class App extends Component {
   }
 
   componentDidMount() {
+    Axios.get('/users/current')
+      .then(
+        function(res) {
+          console.log(res)
+          this.setState({user: res.data})
+        }.bind(this)
+      )
+      .catch(console.log)
     this.showContent("HomeContent");
   }
 
