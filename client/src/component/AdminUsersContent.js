@@ -41,9 +41,11 @@ class AdminUsersContent extends Component {
             const rut = document.getElementById('create-user-modal-rut').value;
             const name = document.getElementById('create-user-modal-name').value;
             const email = document.getElementById('create-user-modal-email').value;
-            Axios.post('/api/users/', { rut, name, email }).then(
+            const password = document.getElementById('create-user-modal-password').value;
+            const type = 'user';
+            Axios.post('/users/register', { rut, password, type, name, email }).then(
                 function (res) {
-                    Axios.get('/api/users/').then(
+                    Axios.get('/users').then(
                         function (res) {
                             this.setState(
                                 {
@@ -51,6 +53,7 @@ class AdminUsersContent extends Component {
                                 },
                                 function (users) {
                                     this.setState({ users });
+                                    this.refs.CreateUserModal.setState({ modal: false })
                                 }.bind(this, res.data)
                             );
                         }.bind(this)
@@ -62,9 +65,9 @@ class AdminUsersContent extends Component {
 
     handlerRemoveUser(event) {
         const id = event.currentTarget.getAttribute('data-user');
-        Axios.delete('/api/users/' + id).then(
+        Axios.delete('/users/' + id).then(
             function (res) {
-                Axios.get('/api/users/').then(
+                Axios.get('/users/').then(
                     function (res) {
                         this.setState(
                             {
@@ -97,7 +100,7 @@ class AdminUsersContent extends Component {
     }
 
     onEntry() {
-        Axios.get('/api/users/').then(
+        Axios.get('/users').then(
             function (res) {
                 this.setState(
                     {

@@ -9,73 +9,71 @@ import Page1Content from "./component/Page1Content";
 import Page2Content from "./component/Page2Content";
 import PageEvaluationContent from "./component/PageEvaluationContent";
 import './App.css';
+import Axios from 'axios';
 
 class App extends Component {
   constructor(props) {
-    super(props);
-    /*
-    this.state = {
-      session: null,
-      filterNull: (e => e !== null),
-      showContent: this.showContent.bind(this)
-    }
-    */
-    this.state = {
-      session: {
-        type: 'admin',
-        name: 'Alan Brito'
-      },
-      filterNull: (e => e !== null),
-      showContent: this.showContent.bind(this)
-    }
-  }
-
-  setStateApp(state, callback) {
-    this.setState(state, callback);
-  }
-
-  showContent(content) {
-    for (const key in this.refs) {
-      if (this.refs.hasOwnProperty(key)) {
-        const ref = this.refs[key];
-        if (ref.state.hasOwnProperty('isVisible')) {
-          this.refs.Header.setState(
-            {
-              selectedNavWidget: content
-            }
-          );
-          if (key === content) {
-            ref.setState(
-              {
-                isVisible: true
-              },
-              () => {
-                if (ref.onEntry) {
-                  ref.onEntry();
-                }
-              }
-            );
-          } else {
-            ref.setState(
-              {
-                isVisible: false
-              },
-              () => {
-                if (ref.onLeave) {
-                  ref.onLeave();
-                }
-              }
-            );
+      super(props);
+          this.state = {
+            user: null,
+            filterNull: (e => e !== null),
+            showContent: this.showContent.bind(this)
           }
         }
+
+        setStateApp(state, callback) {
+          this.setState(state, callback);
+        }
+
+        showContent(content) {
+          for (const key in this.refs) {
+            if (this.refs.hasOwnProperty(key)) {
+              const ref = this.refs[key];
+              if (ref.state.hasOwnProperty('isVisible')) {
+                this.refs.Header.setState(
+                  {
+                    selectedNavWidget: content
+                  }
+                );
+                if (key === content) {
+                  ref.setState(
+                    {
+                      isVisible: true
+                    },
+                    () => {
+                      if (ref.onEntry) {
+                        ref.onEntry();
+                      }
+                    }
+                  );
+                } else {
+                  ref.setState(
+                    {
+                      isVisible: false
+                    },
+                    () => {
+                      if (ref.onLeave) {
+                        ref.onLeave();
+                      }
+                    }
+                  );
+                }
+              }
+            }
+          }
       }
-    }
-  }
 
   componentDidMount() {
-    this.showContent("HomeContent");
-  }
-
+          Axios.get('/users/current')
+            .then(
+              function(res) {
+                console.log(res)
+                this.setState({user: res.data})
+              }.bind(this)
+            )
+            .catch(console.log)
+          this.showContent("HomeContent");
+      }
   render() {
     return (
       <div className="App">

@@ -56,35 +56,34 @@ class Header extends Component {
     }
 
     getLeftNavItems() {
-        const { session, filterNull } = this.props.stateApp;
+        const { user, filterNull } = this.props.stateApp;
         let nis = []
         nis = nis.concat([
             { href: "/#HomeContent", title: "Inicio", fa: "home" },
         ]);
-        if (session) {
+        if (user) {
 
-            if (session.type === "admin") {
+            if (user.type === "admin") {
                 nis = nis.concat([
                     { href: "/#AdminContent", title: "Administración", fa: "users" }
                 ]);
-            } else if (session.type === "user") {
+            } else if (user.type === "user") {
                 nis = nis.concat([
                     { href: "/#CoursesContent", title: "Cursos", fa: "th-list" }
                 ]);
             }
             nis = nis.concat([
                 { href: "/#Page1Content", title: "Pagina 1" },
-                { href: "/#Page2Content", title: "Módulo Seguridad" }, 
-                { href: "/#PageEvaluationContent", title: "Evaluación"}
+                { href: "/#Page2Content", title: "Pagina 2" }
             ]);
         }
         return nis.map(this.getNavItem.bind(this)).filter(filterNull);
     }
 
     getRightNavItems() {
-        const { session, filterNull } = this.props.stateApp;
+        const { user, filterNull } = this.props.stateApp;
         let nis = []
-        if (session) {
+        if (user) {
             nis = nis.concat([
                 { href: "/#MessagesContent", title: "Mensajes", fa: "envelope", count: 1 },
                 { href: "/#NotificationsContent", title: "Notificaciones", fa: "bell", count: 2 }
@@ -110,11 +109,11 @@ class Header extends Component {
                         <Nav navbar className="ml-auto">
                             {this.getRightNavItems()}
                             {
-                                this.props.stateApp.session ?
+                                this.props.stateApp.user ?
                                     (
                                         <UncontrolledDropdown nav inNavbar>
                                             <DropdownToggle nav caret>
-                                                <span className="fa fa-user"></span> {this.props.stateApp.session.name} <span className="caret"></span>
+                                                <span className="fa fa-user"></span> {this.props.stateApp.user.name} <span className="caret"></span>
                                             </DropdownToggle>
                                             <DropdownMenu right>
                                                 <DropdownItem onClick={this.handlerLinkClick} href="/#ProfileContent"><span className="fa fa-user" /> Mi perfil</DropdownItem>
