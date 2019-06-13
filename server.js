@@ -22,7 +22,8 @@ app.use(session({
     })
 }));
 app.use(cors());
-app.use('/users', require('./data/users/users.controller'));
+app.use('/user', require('./data/user/user.controller'));
+app.use('/question', require('./data/question/question.controller'));
 app.use(errorHandler);
 
 const port = process.env.NODE_ENV === 'production' ? (process.env.PORT || 80) : 5000;
