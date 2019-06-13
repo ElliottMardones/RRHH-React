@@ -1,4 +1,3 @@
-const config = require('../../config.json');
 const bcrypt = require('bcryptjs');
 const db = require('../../_helpers/db');
 const User = db.User;
