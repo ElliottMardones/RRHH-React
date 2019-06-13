@@ -10,7 +10,7 @@ class PageEvaluationContent extends Component {
             questions: [],
             currentQuestion: {},
             answers: [],
-            progress: 0, 
+            progress: 0,
             answer: '',
             maxScore: 0,
             result: {}
@@ -145,7 +145,7 @@ class PageEvaluationContent extends Component {
                 <div className="text-center">{ this.state.progress }%</div>
                 <Progress color = { (this.state.progress < 30)?'danger':((this.state.progress !== 100)?'warning':'success') } value={ this.state.progress }/>
                 </Card>
-                <Row>                
+                <Row>
                     <Col md='4' xs='12'>
                         <Jumbotron fluid>
                             <Card>
@@ -179,7 +179,7 @@ class PageEvaluationContent extends Component {
                                     <CardText><Input id="e" addon type="radio" name='selection' checked={ this.state.answer === 'e' } onChange={ this.handleAnswerSelected } value="e"/><Label for="e">{ this.state.currentQuestion.e }</Label></CardText>
                                     <Button className="float-right" onClick={ this.handleCompleteTest } color={ (this.state.progress !== 100)?'danger':'success' }>Revisar</Button>
                                     <Button className="float-right" color="primary" onClick={ this.handleNextClick }>Siguiente</Button>
-                                </CardBody>  
+                                </CardBody>
                             </Card>
                         </Jumbotron>
                     </Col>

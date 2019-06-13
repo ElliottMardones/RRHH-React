@@ -22,6 +22,12 @@ body {
   margin-left: auto;
   margin-right: auto;
 }
+.Page2Content{
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .text-muted{
   background-color: black;
   position: absolute;
@@ -30,6 +36,7 @@ body {
   height: 100px;
   color: white;
 }
+
 br {
   line-height: 15px !important;
 }
