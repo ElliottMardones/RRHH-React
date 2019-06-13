@@ -5,7 +5,7 @@ const userService = require('./user.service');
 // routes
 router.post('/authenticate', authenticate);
 router.post('/register', register);
-router.get('/logout',logout)
+router.get('/logout', logout)
 router.get('/', getAll);
 router.get('/current', getCurrent);
 router.get('/:id', getById);
@@ -35,36 +35,60 @@ function register(req, res, next) {
 }
 
 function logout(req, res, next) {
-    req.session.user = {};
-    res.json({});
+    if (req.session.user._id) {
+        req.session.user = {};
+        res.json({});
+    } else {
+        res.status(401).json({ message: 'Unauthorized Access' })
+    }
 }
 
 function getAll(req, res, next) {
-    userService.getAll()
-        .then(users => res.json(users))
-        .catch(err => next(err));
+    if (req.session.user._id) {
+        userService.getAll()
+            .then(users => res.json(users))
+            .catch(err => next(err));
+    } else {
+        res.status(401).json({ message: 'Unauthorized Access' })
+    }
 }
 
 function getCurrent(req, res, next) {
-    userService.getById(req.session.user._id)
-        .then(user => user ? res.json(user) : res.sendStatus(404))
-        .catch(err => next(err));
+    if (req.session.user._id) {
+        userService.getById(req.session.user._id)
+            .then(user => user ? res.json(user) : res.status(404).json({ message: 'Not Found' }))
+            .catch(err => next(err));
+    } else {
+        res.status(401).json({ message: 'Unauthorized Access' })
+    }
 }
 
 function getById(req, res, next) {
-    userService.getById(req.params.id)
-        .then(user => user ? res.json(user) : res.sendStatus(404))
-        .catch(err => next(err));
+    if (req.session.user._id) {
+        userService.getById(req.params.id)
+            .then(user => user ? res.json(user) : res.status(404).json({ message: 'Not Found' }))
+            .catch(err => next(err));
+    } else {
+        res.status(401).json({ message: 'Unauthorized Access' })
+    }
 }
 
 function update(req, res, next) {
-    userService.update(req.params.id, req.body)
-        .then(() => res.json({}))
-        .catch(err => next(err));
+    if (req.session.user._id) {
+        userService.update(req.params.id, req.body)
+            .then(() => res.json({}))
+            .catch(err => next(err));
+    } else {
+        res.status(401).json({ message: 'Unauthorized Access' })
+    }
 }
 
 function _delete(req, res, next) {
-    userService.delete(req.params.id)
-        .then(() => res.json({}))
-        .catch(err => next(err));
+    if (req.session.user._id) {
+        userService.delete(req.params.id)
+            .then(() => res.json({}))
+            .catch(err => next(err));
+    } else {
+        res.status(401).json({ message: 'Unauthorized Access' })
+    }
 }
