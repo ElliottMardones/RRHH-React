@@ -9,7 +9,8 @@ const schema = new Schema({
     d: { type: String, required: true },
     e: { type: String, required: true },
     answer: { type: String, required: true },
-    score: {type: Number, required: true}
+    score: {type: Number, required: true},
+    test: {type: String, required: true}
 });
 
 schema.set('toJSON', { virtuals: true });

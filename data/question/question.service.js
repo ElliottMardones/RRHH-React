@@ -1,20 +1,28 @@
 const db = require('../../_helpers/db');
 const Question = db.Question;
+const Test = db.Test;
 
 module.exports = {
     getAll,
     getById,
+    getByTest,
     create,
     update,
     delete: _delete
 };
 
 async function getAll() {
-    return await Question.find().select('-hash');
+    return await Question.find();
 }
 
 async function getById(id) {
-    return await Question.findById(id).select('-hash');
+    return await Question.findById(id);
+}
+
+async function getByTest(test) {
+    const test = await Test.findById(test);
+    if (!test) throw 'Test not found';
+    return await Question.find({ test: test._id });
 }
 
 async function create(questionParam) {

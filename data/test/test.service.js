@@ -10,11 +10,11 @@ module.exports = {
 };
 
 async function getAll() {
-    return await Test.find().select('-hash');
+    return await Test.find();
 }
 
 async function getById(id) {
-    return await Test.findById(id).select('-hash');
+    return await Test.findById(id);
 }
 
 async function create(testParam) {
