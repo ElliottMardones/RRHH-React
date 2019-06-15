@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Jumbotron, Card, Button, CardTitle, CardText, Row, Col,Dropdown, DropdownToggle, 
+import { Jumbotron, Card, Button, CardTitle, CardText, Row, Col,Dropdown, DropdownToggle,
   DropdownMenu, DropdownItem, ButtonGroup,ButtonDropdown } from 'reactstrap';
 
 var menEnergia="En física, se define como la capacidad de realizar un trabajo. En tecnología, economía y la definición que se utiliza en este campo se refiere al recurso natural que se transforma y se le da un uso industrial. Ejemplo, Electricidad, combustible, vapor calor, aire comprimido, etc";
@@ -8,12 +8,12 @@ var menEfiEnergetica="Es el uso inteligente de la energía, consumir energía si
 class Page1Content extends Component {
   constructor(props) {
     super(props);
-      
+
     this.state = {
     isVisible: false,
     dropdownOpen: false
     }
-    
+
     this.toggle = this.toggle.bind(this);
     this.onRadioBtnClick = this.onRadioBtnClick.bind(this);
   }
@@ -23,7 +23,7 @@ class Page1Content extends Component {
       dropdownOpen: !prevState.dropdownOpen,
     }))
   }
-  
+
   onRadioBtnClick(infoactual) {
     this.setState({infoactual});
   }
@@ -82,10 +82,10 @@ class Page1Content extends Component {
                     </ButtonDropdown>
                   </ButtonGroup>
                 </CardText>
-                
+
               </Card>
             </Col>
-            
+
             <Col sm="6">
               <Card body>
                 <CardTitle>Información Seleccionada</CardTitle>

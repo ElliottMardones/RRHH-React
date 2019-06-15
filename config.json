@@ -1,0 +1,4 @@
+{
+    "connectionString": "mongodb://localhost/node-mongo-registration-login-api",
+    "secret": "Xt7qeGJ7wBu3TixI5IJKHg885Za1q26LxGB63e5jF5U8vK5L285ld02ANp37w2VxCsT94nZtmAfaLV8c878aT6DN4WZ4STPa3quTgOQl0y09xFl85HQ41ZCa720ha0JMdqFK4N23Cp25182LeUZRU8N6gk024r41Uxa8BEu1TSUkmn56VrLv7WJ7S395N31GZmrfrY70MS6Y4vm5THPclj6qNpc7ycn0cU281452130am2p9t7V550DXh99YXu2F"
+}

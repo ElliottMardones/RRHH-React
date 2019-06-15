@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Jumbotron, Card, Button, CardTitle, CardText, Row, Col,Dropdown, DropdownToggle, 
+import { Jumbotron, Card, Button, CardTitle, CardText, Row, Col,Dropdown, DropdownToggle,
   DropdownMenu, DropdownItem, ButtonGroup,ButtonDropdown  } from 'reactstrap';
 var menExtintor="Conocer sobre el manejo de extintores constituye un deber de todo trabajador en chile y tiene como objetivo dar respuesta rápida a un posible evento de fuego incipiente a Mago en ningún caso pretende que el trabajador actúen un siniestro poniendo en riesgo su vida Colchones Rosen lo entienden y así deja de manifiesto que la respuesta frente a un eventual siniestro debe ser siempre por parte de los bomberos, nunca por parte de los trabajadores de Colchones Rosen. Lo primordial es resguardarse en las zonas de seguridad definidas en los distintos puntos de la planta Sin embargo Rosen cuenta con una brigada de emergencias, la cual se encuentra preparada y constituida para enfrentar siniestros, la cual cuenta con los equipos necesarios y la capacitación correspondiente. Sin embargo, la brigada de incendios de Rosen es solo para contener EL SINIESTRO, hasta que lleguen al lugar los bomberos."
 var menTriangulofuego="Triángulo de fuego: El fuego puede ser representado por un triángulo equilátero llamado triángulo del fuego, en el que se simbolizan en cada uno de sus lados los factores esenciales para que el mismo exista. Combustible: es toda sustancia susceptible de arde, estamos rodeados de materiales combustibles, por ejemplo: maderas, gasolina, gas licuado, productos, químicos, espumas, fibras, materiales textiles, etc.Calor: es la transferencia de energía entre diferentes cuerpos o diferentes zonas de un mismo cuerpo que se encuentran a distintas temperaturas. Este flujo siempre ocurre desde el cuerpo de mayor temperatura hace el cuerpo de menor temperatura, ocurriendo la transferencia de calor hasta que ambos cuerpos se encuentren en equilibrio térmico.Oxígeno: EL oxígeno representa aproximadamente el 20,9% en volumen de las composición de la atmósfera terrestre en altura del nivel del mar.    Es un gas incoloro, inodoro (sin olor), La reacción de combustible puede llevarse a cabo directamente con el oxígeno o bien con una mezcla de sustancias que contengan oxígeno, llamada “comburente”, siendo el aire atmosférico el comburente más habitual."
@@ -20,7 +20,7 @@ class Page2Content extends Component {
       dropdownOpen: !prevState.dropdownOpen,
     }))
   }
-  
+
   onRadioBtnClick(infoactual) {
     this.setState({infoactual});
   }
@@ -37,7 +37,7 @@ class Page2Content extends Component {
                         <CardTitle>Menu</CardTitle>
                         <CardText>
                           <ButtonGroup vertical>
-                            
+
                             <ButtonDropdown direction="down" isOpen={this.state.btnDropOne} toggle={() => { this.setState({ btnDropOne: !this.state.btnDropOne }); }}>
                               <DropdownToggle onClick={() => this.onRadioBtnClick(menExtintor)} caret>
                                 Extintor
@@ -47,7 +47,7 @@ class Page2Content extends Component {
                                 <DropdownItem onClick={() => this.onRadioBtnClick(menCadena)}>Reaccion en Cadena</DropdownItem>
                               </DropdownMenu>
                             </ButtonDropdown>
-                            
+
                             <ButtonDropdown direction="down" isOpen={this.state.btnDropTwo} toggle={() => { this.setState({ btnDropTwo : !this.state.btnDropTwo }); }}>
                                 <DropdownToggle onClick={() => this.onRadioBtnClick(2.0)} caret>
                                 Informacion Seguridad 2
@@ -57,7 +57,7 @@ class Page2Content extends Component {
                                 <DropdownItem onClick={() => this.onRadioBtnClick(2.2)}>Informacion 2.2</DropdownItem>
                               </DropdownMenu>
                             </ButtonDropdown>
-                            
+
                             <ButtonDropdown direction="down" isOpen={this.state.btnDropThree} toggle={() => { this.setState({ btnDropThree : !this.state.btnDropThree }); }}>
                               <DropdownToggle onClick={() => this.onRadioBtnClick(3.0)} caret>
                                 Informacion Seguridad 3
@@ -78,10 +78,10 @@ class Page2Content extends Component {
                             </ButtonDropdown>
                           </ButtonGroup>
                         </CardText>
-                        
+
                       </Card>
                     </Col>
-                    
+
                     <Col sm="6">
                       <Card body>
                         <CardTitle>Información Seleccionada</CardTitle>

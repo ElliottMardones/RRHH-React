@@ -21,7 +21,8 @@ class Header extends Component {
         this.toggle = this.toggle.bind(this);
         this.handlerLinkClick = this.handlerLinkClick.bind(this);
         this.state = {
-            isOpen: false
+            isOpen: false,
+            selectedNavWidget: null
         };
     }
 
@@ -43,7 +44,7 @@ class Header extends Component {
     getNavItem(element, index) {
         if (element) {
             return (
-                <NavItem key={index}>
+                <NavItem key={index} className={(element.href.split('#')[1]) === this.state.selectedNavWidget ? "nav-item active" : "nav-item"}>
                     <NavLink href={element.href} onClick={this.handlerLinkClick}>
                         {(element.fa) ? (<span className={"fa fa-" + element.fa} />) : null} {element.title} {(element.count) ? (<Badge color="light" pill>{element.count}</Badge>) : null}
                     </NavLink>
@@ -55,18 +56,18 @@ class Header extends Component {
     }
 
     getLeftNavItems() {
-        const { session, filterNull } = this.props.stateApp;
+        const { user, filterNull } = this.props.stateApp;
         let nis = []
         nis = nis.concat([
             { href: "/#HomeContent", title: "Inicio", fa: "home" },
         ]);
-        if (session) {
+        if (user) {
 
-            if (session.type === "admin") {
+            if (user.type === "admin") {
                 nis = nis.concat([
                     { href: "/#AdminContent", title: "Administración", fa: "users" }
                 ]);
-            } else if (session.type === "user") {
+            } else if (user.type === "user") {
                 nis = nis.concat([
                     { href: "/#CoursesContent", title: "Cursos", fa: "th-list" }
                 ]);
@@ -80,9 +81,9 @@ class Header extends Component {
     }
 
     getRightNavItems() {
-        const { session, filterNull } = this.props.stateApp;
+        const { user, filterNull } = this.props.stateApp;
         let nis = []
-        if (session) {
+        if (user) {
             nis = nis.concat([
                 { href: "/#MessagesContent", title: "Mensajes", fa: "envelope", count: 1 },
                 { href: "/#NotificationsContent", title: "Notificaciones", fa: "bell", count: 2 }
@@ -108,11 +109,11 @@ class Header extends Component {
                         <Nav navbar className="ml-auto">
                             {this.getRightNavItems()}
                             {
-                                this.props.stateApp.session ?
+                                this.props.stateApp.user ?
                                     (
                                         <UncontrolledDropdown nav inNavbar>
                                             <DropdownToggle nav caret>
-                                                <span className="fa fa-user"></span> {this.props.stateApp.session.name} <span className="caret"></span>
+                                                <span className="fa fa-user"></span> {this.props.stateApp.user.name} <span className="caret"></span>
                                             </DropdownToggle>
                                             <DropdownMenu right>
                                                 <DropdownItem onClick={this.handlerLinkClick} href="/#ProfileContent"><span className="fa fa-user" /> Mi perfil</DropdownItem>

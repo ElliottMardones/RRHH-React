@@ -13,6 +13,7 @@ import {
     Button,
     Alert
 } from 'reactstrap';
+import Axios from 'axios';
 
 class LoginContent extends Component {
     constructor(props) {
@@ -39,16 +40,45 @@ class LoginContent extends Component {
     handlerLoginSubmit(event) {
         event.preventDefault();
         const { loginMessage } = this.state;
-        loginMessage.isOpen = true;
-        loginMessage.type = 'danger';
-        loginMessage.content = 'Error inesperado.';
-        this.setState({ loginMessage });
+        const rut = this.refs.rut.refs.rut.value;
+        const password = this.refs.password.refs.password.value;
+        if (rut && password) {
+            Axios.post('/users/authenticate', { rut, password })
+                .then(
+                    (res) => {
+                        this.props.setStateApp({ user: res.data })
+                        loginMessage.isOpen = false;
+                        this.setState({ loginMessage });
+                        this.props.stateApp.showContent('HomeContent')
+                    }
+                )
+                .catch(
+                    (err) => {
+                        this.props.setStateApp({ user: null })
+                        loginMessage.isOpen = true;
+                        loginMessage.type = 'warning';
+                        loginMessage.content = 'Usuario no encontrado.';
+                        this.setState({ loginMessage });
+                    }
+                );
+        } else {
+            loginMessage.isOpen = true;
+            loginMessage.type = 'warning';
+            loginMessage.content = 'RUT y Clave requeridos.';
+            this.setState({ loginMessage });
+        }
     }
 
     onEntry() {
-        this.props.setStateApp({
-            session: null
-        });
+        Axios.get('/logout')
+            .then(
+                (res) => {
+                    this.props.setStateApp({
+                        user: null
+                    });
+                }
+            )
+            .catch(console.log);
     }
 
     onLeave() {
@@ -66,14 +96,14 @@ class LoginContent extends Component {
                                 <Alert color={this.state.loginMessage.type} isOpen={this.state.loginMessage.isOpen} toggle={this.state.loginMessage.toggle} fade={false}>
                                     {this.state.loginMessage.content}
                                 </Alert>
-                                <Form onSubmit={this.handlerLoginSubmit}>
+                                <Form onSubmit={this.handlerLoginSubmit} ref="loginForm">
                                     <InputGroup>
                                         <InputGroupAddon addonType="prepend">
                                             <InputGroupText>
                                                 <span className="fa fa-user" />
                                             </InputGroupText>
                                         </InputGroupAddon>
-                                        <Input type="email" placeholder="Correo Electronico" />
+                                        <Input type="text" placeholder="RUT" ref="rut" innerRef="rut" required />
                                     </InputGroup>
                                     <br />
                                     <InputGroup>
@@ -82,7 +112,7 @@ class LoginContent extends Component {
                                                 <span className="fa fa-lock" />
                                             </InputGroupText>
                                         </InputGroupAddon>
-                                        <Input type="password" placeholder="Clave" />
+                                        <Input type="password" placeholder="Clave" ref="password" innerRef="password" required />
                                     </InputGroup>
                                     <br />
                                     <Button type="submit" color="primary" block>Entrar</Button>
