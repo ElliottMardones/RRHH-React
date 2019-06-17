@@ -12,6 +12,7 @@ const app = express();
 // Middlewares
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
+app.use(cors());
 app.use(session({
     secret: config.secret,
     saveUninitialized: true,
@@ -21,7 +22,6 @@ app.use(session({
         ttl: 24 * 60 * 60
     })
 }));
-app.use(cors());
 app.use('/user', require('./data/user/user.controller'));
 app.use('/question', require('./data/question/question.controller'));
 app.use('/test', require('./data/test/test.controller'));

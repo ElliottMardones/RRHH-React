@@ -43,7 +43,7 @@ class LoginContent extends Component {
         const rut = this.refs.rut.refs.rut.value;
         const password = this.refs.password.refs.password.value;
         if (rut && password) {
-            Axios.post('/users/authenticate', { rut, password })
+            Axios.post('/user/authenticate', { rut, password })
                 .then(
                     (res) => {
                         this.props.setStateApp({ user: res.data })
@@ -70,7 +70,7 @@ class LoginContent extends Component {
     }
 
     onEntry() {
-        Axios.get('/logout')
+        Axios.get('/user/logout')
             .then(
                 (res) => {
                     this.props.setStateApp({

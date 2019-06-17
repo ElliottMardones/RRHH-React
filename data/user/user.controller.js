@@ -35,7 +35,7 @@ function register(req, res, next) {
 }
 
 function logout(req, res, next) {
-    if (req.session.user._id) {
+    if (req.session.user) {
         req.session.user = {};
         res.json({});
     } else {
@@ -44,7 +44,7 @@ function logout(req, res, next) {
 }
 
 function getAll(req, res, next) {
-    if (req.session.user._id) {
+    if (req.session.user) {
         userService.getAll()
             .then(users => res.json(users))
             .catch(err => next(err));
@@ -54,7 +54,7 @@ function getAll(req, res, next) {
 }
 
 function getCurrent(req, res, next) {
-    if (req.session.user._id) {
+    if (req.session.user) {
         userService.getById(req.session.user._id)
             .then(user => user ? res.json(user) : res.status(404).json({ message: 'Not Found' }))
             .catch(err => next(err));
@@ -64,7 +64,7 @@ function getCurrent(req, res, next) {
 }
 
 function getById(req, res, next) {
-    if (req.session.user._id) {
+    if (req.session.user) {
         userService.getById(req.params.id)
             .then(user => user ? res.json(user) : res.status(404).json({ message: 'Not Found' }))
             .catch(err => next(err));
@@ -74,7 +74,7 @@ function getById(req, res, next) {
 }
 
 function update(req, res, next) {
-    if (req.session.user._id) {
+    if (req.session.user) {
         userService.update(req.params.id, req.body)
             .then(() => res.json({}))
             .catch(err => next(err));
@@ -84,7 +84,7 @@ function update(req, res, next) {
 }
 
 function _delete(req, res, next) {
-    if (req.session.user._id) {
+    if (req.session.user) {
         userService.delete(req.params.id)
             .then(() => res.json({}))
             .catch(err => next(err));

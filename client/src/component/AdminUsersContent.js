@@ -43,9 +43,9 @@ class AdminUsersContent extends Component {
             const email = document.getElementById('create-user-modal-email').value;
             const password = document.getElementById('create-user-modal-password').value;
             const type = 'user';
-            Axios.post('/users/register', { rut, password, type, name, email }).then(
+            Axios.post('/user/register', { rut, password, type, name, email }).then(
                 function (res) {
-                    Axios.get('/users').then(
+                    Axios.get('/user').then(
                         function (res) {
                             this.setState(
                                 {
@@ -65,9 +65,9 @@ class AdminUsersContent extends Component {
 
     handlerRemoveUser(event) {
         const id = event.currentTarget.getAttribute('data-user');
-        Axios.delete('/users/' + id).then(
+        Axios.delete('/user/' + id).then(
             function (res) {
-                Axios.get('/users/').then(
+                Axios.get('/user/').then(
                     function (res) {
                         this.setState(
                             {
@@ -100,18 +100,17 @@ class AdminUsersContent extends Component {
     }
 
     onEntry() {
-        Axios.get('/users').then(
-            function (res) {
-                this.setState(
-                    {
-                        users: []
-                    },
-                    function (users) {
-                        this.setState({ users });
-                    }.bind(this, res.data)
-                );
-            }.bind(this)
-        );
+        Axios.get('/user/')
+            .then(
+                res => {
+                    console.log(res.data)
+                    this.setState(
+                        { users: [] },
+                        () => this.setState({ users: res.data })
+                    );
+                }
+            )
+            .catch(console.log);
     }
 
     render() {
