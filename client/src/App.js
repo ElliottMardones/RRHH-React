@@ -64,10 +64,9 @@ class App extends Component {
   }
 
   componentDidMount() {
-    Axios.get('/users/current')
+    Axios.get('/user/current')
       .then(
         function (res) {
-          console.log(res)
           this.setState({ user: res.data })
         }.bind(this)
       )

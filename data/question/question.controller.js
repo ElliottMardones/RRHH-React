@@ -12,7 +12,7 @@ router.delete('/:id', _delete);
 module.exports = router;
 
 function getAll(req, res, next) {
-    if (req.session.user._id) {
+    if (req.session.user) {
         questionService.getAll()
             .then(questions => res.json(questions))
             .catch(err => next(err));
@@ -22,7 +22,7 @@ function getAll(req, res, next) {
 }
 
 function getById(req, res, next) {
-    if (req.session.user._id) {
+    if (req.session.user) {
         questionService.getById(req.params.id)
             .then(question => question ? res.json(question) : res.status(404).json({ message: 'Not Found' }))
             .catch(err => next(err));
@@ -32,7 +32,7 @@ function getById(req, res, next) {
 }
 
 function create(req, res, next) {
-    if (req.session.user._id) {
+    if (req.session.user) {
         questionService.create(req.body)
             .then(() => res.json({}))
             .catch(err => next(err));
@@ -42,7 +42,7 @@ function create(req, res, next) {
 }
 
 function update(req, res, next) {
-    if (req.session.user._id) {
+    if (req.session.user) {
         questionService.update(req.params.id, req.body)
             .then(() => res.json({}))
             .catch(err => next(err));
@@ -52,7 +52,7 @@ function update(req, res, next) {
 }
 
 function _delete(req, res, next) {
-    if (req.session.user._id) {
+    if (req.session.user) {
         questionService.delete(req.params.id)
             .then(() => res.json({}))
             .catch(err => next(err));
