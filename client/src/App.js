@@ -86,11 +86,7 @@ class App extends Component {
           <AdminUsersContent stateApp={this.state} setStateApp={this.setStateApp.bind(this)} ref="AdminUsersContent" />
           <Page1Content stateApp={this.state} setStateApp={this.setStateApp.bind(this)} ref="Page1Content" />
           <Page2Content stateApp={this.state} setStateApp={this.setStateApp.bind(this)} ref="Page2Content" />
-<<<<<<< HEAD
           <PageEvaluationContent stateApp={this.state} setStateApp={this.setStateApp.bind(this)} ref="PageEvaluationContent" nQuestions='25' />
-=======
-          <PageEvaluationContent stateApp={this.state} setStateApp={this.setStateApp.bind(this)} ref="PageEvaluationContent" nQuestions='25'/>
->>>>>>> dev-Ivan
           <br />
           <Footer stateApp={this.state} setStateApp={this.setStateApp.bind(this)} />
         </main>
