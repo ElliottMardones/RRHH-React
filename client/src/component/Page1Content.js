@@ -1,108 +1,169 @@
 import React, { Component } from 'react';
-import {
-  Jumbotron, Card, CardTitle, Row, Col, DropdownToggle,
-  DropdownMenu, DropdownItem, ButtonGroup, ButtonDropdown
+import { Jumbotron, 
+    Card,
+    CardImg, 
+    CardTitle,
+    Row, 
+    Col, 
+    DropdownToggle,
+    DropdownMenu, 
+    DropdownItem, 
+    ButtonGroup,
+    ButtonDropdown,
+    Media
 } from 'reactstrap';
 
-var menEnergia = "En física, se define como la capacidad de realizar un trabajo. En tecnología, economía y la definición que se utiliza en este campo se refiere al recurso natural que se transforma y se le da un uso industrial. Ejemplo, Electricidad, combustible, vapor calor, aire comprimido, etc";
-var menUsoEnergia = "Forma o tipo de aplicación de la energía (ventilador, iluminación, transporte, etc.). Para alcanzará la eficiencia energética implica la estandarización de procedimientos y procesos que permitan dar respuestas a la reducción del consumo energético, a través de mejores prácticas y acorde a las nuevas tecnologías. Siempre será el ideal consumir sin desperdiciarlas, y así se podrán realizar más actividades con los mismos recursos y mejorar la calidad de vida de las personas, manteniendo equilibrio y armonía con el medio ambiente."
-var menEfiEnergetica = "Es el uso inteligente de la energía, consumir energía sin desperdiciarla. A través de ella se pueden realizar más actividades como la misma energía y mejorar nuestra calidad de vida, manteniendo equilibrio y armonía con el medio ambiente."
+import { infoInduccion } from '../info/infoInduccion';
 class Page1Content extends Component {
-  constructor(props) {
-    super(props);
+    constructor(props) {
+        super(props);
 
-    this.state = {
-      isVisible: false,
-      dropdownOpen: false
-    }
-
-    this.toggle = this.toggle.bind(this);
+        this.state = {
+            isVisible: false,
+            dropdownOpen: [],
+            infoInduccion: infoInduccion,
+            currentInfo: {},
+            currentList: null,
+            currentOthers: null,
+            currentDefinitions: null,
+            currentImg: null
+        }
+        this.toggle = this.toggle.bind(this);
     this.onRadioBtnClick = this.onRadioBtnClick.bind(this);
-  }
-
-  toggle() {
+    }
+    toggle(){
     this.setState(prevState => ({
-      dropdownOpen: !prevState.dropdownOpen,
+        dropdownOpen: !prevState.dropdownOpen,
     }))
   }
 
+  componentDidMount(){
+    this.state.infoInduccion.forEach((option)=>{
+        let dropdownOpen = this.state.dropdownOpen;
+        dropdownOpen = dropdownOpen.concat(false);
+        this.setState({
+            dropdownOpen: dropdownOpen
+        });
+    });
+  }
+
   onRadioBtnClick(infoactual) {
-    this.setState({ infoactual });
+    let currentList = null;
+    let currentOthers = null;
+    let currentDefinitions = null;
+    if(infoactual.lists!==null){
+        currentList = infoactual.lists.map((option, indx)=>{
+            let options = option.options.map((option, indx)=>{
+                return(<li key={"li"+indx}>{ option }</li>);
+            });
+            return(
+                <div key={"div"+indx}>
+                    <p>{ option.description }</p>
+                    <ul align='justify' key={"ul"+indx}>
+                        { options }
+                    </ul>
+                </div>
+                );
+        });
+    }
+    if(infoactual.others!==null){
+        currentOthers = infoactual.others.map((option, indx)=>{
+            return(
+                <p align='justify' key={"p1"+indx}>{ option }</p>
+            );
+        });
+    }
+    if(infoactual.definitions!==null){
+        currentDefinitions = infoactual.definitions.map((option, indx)=>{
+            return(
+               <p align='justify' key={"p2"+indx}><span style={{fontWeight: "bold"}}>{ option.name }</span> { option.definition }</p>
+            );
+        });
+    }
+    const images = require.context('../media', true);
+    let img = images('./'+ infoactual.imgPath);
+    this.setState({
+        currentInfo: infoactual,
+        currentList: currentList,
+        currentOthers: currentOthers,
+        currentDefinitions: currentDefinitions,
+        currentImg: img
+    });
   }
 
+    render() {
+        const Menu = this.state.infoInduccion.map((option, indx)=>{
+            let subtemas = null;
+            if(Array.isArray(option.description)){
+                subtemas = option.description.map((subtema, indx)=>{
+                    return(
+                            <DropdownItem key={"dBtn"+indx} onClick={() => this.onRadioBtnClick(subtema)}>{ subtema.title }</DropdownItem>
+                        )
+                });
+            }
+            return (
+                <ButtonDropdown key={indx} direction="down" isOpen={this.state.dropdownOpen[indx]} toggle={() => {
+                    let dropdownOpen = this.state.dropdownOpen;
+                    dropdownOpen[indx] = !dropdownOpen[indx];
+                    this.setState({ dropdownOpen: dropdownOpen}); 
+                }}>
+                    <DropdownToggle caret>
+                        {option.title}
+                    </DropdownToggle>
+                    <DropdownMenu>
+                        {subtemas}
+                    </DropdownMenu>
+                </ButtonDropdown>
+            );
+        });
 
 
-  render() {
-    return (
-      <div className="Page1Content" style={{ 'display': ((this.state.isVisible) ? 'block' : 'none') }}>
 
-        <Jumbotron>
-          <h1 className="display-3">Pagina de Trabajo</h1>
-          <hr className="my-2" />
-          <Row>
-            <Col sm="1.5">
-              <Card body>
-                <CardTitle>Menu</CardTitle>
-                <div>
-                  <ButtonGroup vertical>
-                    <ButtonDropdown direction="down" isOpen={this.state.btnDropOne} toggle={() => { this.setState({ btnDropOne: !this.state.btnDropOne }); }}>
-                      <DropdownToggle onClick={() => this.onRadioBtnClick(menEfiEnergetica)} caret>
-                        Eficencia Energetica
-                      </DropdownToggle>
-                      <DropdownMenu>
-                        <DropdownItem onClick={() => this.onRadioBtnClick(menEnergia)}>Energía</DropdownItem>
-                        <DropdownItem onClick={() => this.onRadioBtnClick(menUsoEnergia)}>Uso de Energía</DropdownItem>
-                      </DropdownMenu>
-                    </ButtonDropdown>
-
-                    <ButtonDropdown direction="down" isOpen={this.state.btnDropTwo} toggle={() => { this.setState({ btnDropTwo: !this.state.btnDropTwo }); }}>
-                      <DropdownToggle onClick={() => this.onRadioBtnClick(2.0)} caret>
-                        Informacion Trabajo 2
-                      </DropdownToggle>
-                      <DropdownMenu>
-                        <DropdownItem onClick={() => this.onRadioBtnClick(2.1)}>Informacion 2.1</DropdownItem>
-                        <DropdownItem onClick={() => this.onRadioBtnClick(2.2)}>Informacion 2.2</DropdownItem>
-                      </DropdownMenu>
-                    </ButtonDropdown>
-                    <ButtonDropdown direction="down" isOpen={this.state.btnDropThree} toggle={() => { this.setState({ btnDropThree: !this.state.btnDropThree }); }}>
-                      <DropdownToggle onClick={() => this.onRadioBtnClick(3.0)} caret>
-                        Informacion Trabajo 3
-                      </DropdownToggle>
-                      <DropdownMenu>
-                        <DropdownItem onClick={() => this.onRadioBtnClick(3.1)}>Informacion 3.1</DropdownItem>
-                        <DropdownItem onClick={() => this.onRadioBtnClick(3.2)}>Informacion 3.2</DropdownItem>
-                      </DropdownMenu>
-                    </ButtonDropdown>
-                    <ButtonDropdown direction="down" isOpen={this.state.btnDropFour} toggle={() => { this.setState({ btnDropFour: !this.state.btnDropFour }); }}>
-                      <DropdownToggle onClick={() => this.onRadioBtnClick(4.0)} caret>
-                        Informacion Trabajo 4
-                      </DropdownToggle>
-                      <DropdownMenu>
-                        <DropdownItem onClick={() => this.onRadioBtnClick(4.1)}>Informacion 4.1</DropdownItem>
-                        <DropdownItem onClick={() => this.onRadioBtnClick(4.2)}>Informacion 4.2</DropdownItem>
-                      </DropdownMenu>
-                    </ButtonDropdown>
-                  </ButtonGroup>
-                </div>
-
-              </Card>
-            </Col>
-
-            <Col sm="6">
-              <Card body>
-                <CardTitle>Información Seleccionada</CardTitle>
+        return (
+            <div className="Page1Content" style={{'display':((this.state.isVisible)?'block':'none')}}>
+              <Jumbotron>
+                <h1 className="display-4 text-center">Módulo de Inducción</h1>
                 <hr className="my-2" />
-                <div>
-                  <p>{this.state.infoactual}</p>
-                </div>
-              </Card>
-            </Col>
-          </Row>
-        </Jumbotron>
-      </div>
+                  <Row>
+                    <Col md="3" sm="12">
+                      <Card body>
+                        <CardTitle className="text-center">Menú</CardTitle>
+                        <div>
+                          <ButtonGroup vertical>
+                            { Menu }
+                          </ButtonGroup>
+                        </div>
 
-    );
-  }
+                      </Card>
+                    </Col>
+
+                    <Col md="6" sm="12">
+                      <Card body>
+                        <CardTitle><h4 className=" text-center">{ (this.state.currentInfo.title!==undefined)?this.state.currentInfo.title : "Bienvenido a la sección de Inducción" }</h4></CardTitle>
+                        <hr className="my-2" />
+                        <div>
+                            <p>{
+                                (this.state.currentInfo.description!==undefined)?this.state.currentInfo.description : "Selecciona algún tema que desees revisar."
+                            }</p>
+                        </div>
+                        <div>{ (this.state.currentDefinitions!==null)?this.state.currentDefinitions:'' }</div>
+                        { (this.state.currentList!==null)?this.state.currentList:'' }
+                        <div>{ (this.state.currentOthers!==null)?this.state.currentOthers:'' }</div>
+                      </Card>
+                    </Col>
+
+
+                    <Col md="3" sm="12">
+                        <Card>
+                                <CardImg top src={this.state.currentImg} atl="imagen" />
+                            </Card>
+                        
+                    </Col>
+                  </Row>
+                </Jumbotron>
+            </div>
+        );
+    }
 }
 
 export default Page1Content;
