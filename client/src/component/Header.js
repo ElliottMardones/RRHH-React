@@ -69,7 +69,8 @@ class Header extends Component {
                 ]);
             } else if (user.type === "user") {
                 nis = nis.concat([
-                    { href: "/#CoursesContent", title: "Cursos", fa: "th-list" }
+                    { href: "/#CoursesContent", title: "Cursos", fa: "th-list" },
+                    { href: "/#PageEvaluationContent", title: "Evaluación", fa: "th-list" }
                 ]);
             }
             nis = nis.concat([

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './PageEvaluationContent.css';
-import { Jumbotron, Button, Row, Col , Card, Input, CardBody, CardTitle, Progress, CardText, Label } from 'reactstrap';
+import { Jumbotron, Button, Row, Col , Card, Input, CardBody, CardTitle, Progress, CardText, Label,Modal, ModalHeader, ModalBody, ModalFooter,Alert,ButtonGroup } from 'reactstrap';
 class PageEvaluationContent extends Component {
     constructor(props) {
         super(props);
@@ -19,6 +19,8 @@ class PageEvaluationContent extends Component {
         this.handleNextClick = this.handleNextClick.bind(this);
         this.handleAnswerSelected = this.handleAnswerSelected.bind(this);
         this.handleCompleteTest = this.handleCompleteTest.bind(this);
+        this.toggle = this.toggle.bind(this);
+
     }
 
     componentDidMount() {
@@ -50,6 +52,7 @@ class PageEvaluationContent extends Component {
             maxScore: maxScore
         });
     }
+
 
     onAnswered(){
         let progress = this.state.progress + 1;
@@ -91,36 +94,67 @@ class PageEvaluationContent extends Component {
     }
 
     handleCompleteTest(event){
-        if(window.confirm('¿Seguro que desea terminar la Prueba?')){
-            let result = {}
-            result.maxScore = this.state.maxScore;
-            result.correct = 0
-            result.omitted = 0
-            result.incorrect = 0
-            const aResult = this.state.answers.map(answer => {
-                if(this.state.questions[answer.indx].correctAnswer === answer.answer){
-                    result.correct +=1 ;
-                    return "correct";
-                }else if(answer.answer === ''){
-                    result.omitted +=1 ;
-                    return "omitted";
-                }else{
-                    result.incorrect +=1 ;
-                    return "incorrect";
-                }
-            });
-            result.scoreObtained = 0;
-            aResult.forEach((answer, indx) => {
-                console.log(answer);
-                if(answer === "correct"){
-                    result.scoreObtained += this.state.questions[indx].score;
-                }
-            });
-            result.calification = (70*result.scoreObtained)/this.state.maxScore;
-            console.log(result);
+        this.setState(prevState => ({
+          modal:!prevState.modal
+        }))
+        let result = {}
+        result.maxScore = this.state.maxScore;
+        result.correct = 0
+        result.omitted = 0
+        result.incorrect = 0
+        result.total = false
+        result.percentage = 0
+        const aResult = this.state.answers.map(answer => {
+            if(this.state.questions[answer.indx].correctAnswer === answer.answer){
+                result.correct +=1 ;
+                return "correct";
+            }else if(answer.answer === ''){
+                result.omitted +=1 ;
+                 return "omitted";
+            }else{
+                result.incorrect +=1 ;
+                return "incorrect";
+            }
+        });
+        result.scoreObtained = 0;
+        aResult.forEach((answer, indx) => {
+            console.log(answer);
+            if(answer === "correct"){
+                result.scoreObtained += this.state.questions[indx].score;
+            }
+        });
+        result.calification = (70*result.scoreObtained)/this.state.maxScore;
+        this.state.calification = result.calification
+        result.percentage = ((result.correct)*100)/25
+        this.state.percentage = result.percentage
 
+        console.log(result);
+        if (result.correct>=2) {
+            result.total=true
+            console.log(result.total)
+            this.state.result=result.total
         }
+        else{
+            console.log(result.total)
+            this.state.result=result.total
+        }
+
+
+        
     }
+    toggle(){
+        this.setState(prevState => ({
+          modal:!prevState.modal
+        }))
+    }
+
+    SaveDocument(){
+        console.log("Guardando...")
+    }
+    ShowDocument(){
+        console.log("Mostrando...")
+    }
+
 
     render() {
         const answers = this.state.answers.map(answer =>{
@@ -177,6 +211,42 @@ class PageEvaluationContent extends Component {
                                     <CardText><Input id="c" addon type="radio" name='selection' checked={ this.state.answer === 'c' } onChange={ this.handleAnswerSelected } value="c"/><Label for="c">{ this.state.currentQuestion.c }</Label></CardText>
                                     <CardText><Input id="d" addon type="radio" name='selection' checked={ this.state.answer === 'd' } onChange={ this.handleAnswerSelected } value="d"/><Label for="d">{ this.state.currentQuestion.d }</Label></CardText>
                                     <CardText><Input id="e" addon type="radio" name='selection' checked={ this.state.answer === 'e' } onChange={ this.handleAnswerSelected } value="e"/><Label for="e">{ this.state.currentQuestion.e }</Label></CardText>
+                                    {this.state.result? (
+                                        <div>
+                                        <center>
+                                            <Modal isOpen={this.state.modal} toggle={this.handleCompleteTest} className={this.props.className}>
+                                                <ModalHeader toggle={this.toggle}>Resultado</ModalHeader>
+                                                <ModalBody>
+                                                    Porcentaje de Aciertos {this.state.percentage} %, Estas Sobre el porcentaje minimo, estas Aprobado, Felicidades.
+                                                </ModalBody>
+                                                <ModalFooter>
+                                                    <ButtonGroup>
+                                                        <Button color ="primary" size="sm" onClick={this.toggle}>Aceptar</Button>{' '}
+                                                        <Button color = "primary"  size="sm" onClick={this.ShowDocument}>Mostrar Documento</Button>
+                                                        <Button color = "primary"  size="sm" onClick={this.SaveDocument}>Guardar PDF</Button>
+                                                    </ButtonGroup>
+                                                </ModalFooter>
+                                            </Modal>
+                                         </center>
+                                            </div>
+                                    ): (
+                                        <div>
+                                            <Modal isOpen={this.state.modal} toggle={this.handleCompleteTest} className={this.props.className}>
+                                                <ModalHeader color="danger" toggle={this.toggle}>Resultado</ModalHeader>
+                                                <ModalBody>
+                                                    Porcentaje de Aciertos {this.state.percentage} %, No haz completado el minimo, estas Reprobado.
+                                                </ModalBody>
+                                                <ModalFooter>
+                                                    <ButtonGroup>
+                                                        <Button color="primary" size="sm" onClick={this.toggle}>Confirmar</Button>{' '}
+                                                        <Button color = "primary" size="sm" onClick={this.ShowDocument}>Mostrar Documento</Button>
+                                                        <Button color = "primary" size="sm" onClick={this.SaveDocument}>Guardar PDF</Button>
+                                                    </ButtonGroup>
+                                                </ModalFooter>
+                                            </Modal>
+                                        
+                                        </div>
+                                    )}
                                     <Button className="float-right" onClick={ this.handleCompleteTest } color={ (this.state.progress !== 100)?'danger':'success' }>Revisar</Button>
                                     <Button className="float-right" color="primary" onClick={ this.handleNextClick }>Siguiente</Button>
                                 </CardBody>
