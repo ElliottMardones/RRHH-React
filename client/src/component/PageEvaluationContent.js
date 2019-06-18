@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import './PageEvaluationContent.css';
-import { Jumbotron, Button, Row, Col , Card, Input, CardBody, CardTitle, Progress, CardText, Label,Modal, ModalHeader, ModalBody, ModalFooter,Alert,ButtonGroup } from 'reactstrap';
+import { Jumbotron, Button, Row, Col , Card, Input, CardBody, CardTitle, Progress, CardText, Label,Modal, ModalHeader, ModalBody, ModalFooter,ButtonGroup } from 'reactstrap';
+
+
 class PageEvaluationContent extends Component {
     constructor(props) {
         super(props);
@@ -15,6 +17,7 @@ class PageEvaluationContent extends Component {
             maxScore: 0,
             result: {}
         }
+
         this.handleQuestionClick = this.handleQuestionClick.bind(this);
         this.handleNextClick = this.handleNextClick.bind(this);
         this.handleAnswerSelected = this.handleAnswerSelected.bind(this);
@@ -22,7 +25,7 @@ class PageEvaluationContent extends Component {
         this.toggle = this.toggle.bind(this);
 
     }
-
+    
     componentDidMount() {
         let answers = this.state.answers;
         let questions = this.state.questions;
@@ -124,19 +127,25 @@ class PageEvaluationContent extends Component {
             }
         });
         result.calification = (70*result.scoreObtained)/this.state.maxScore;
-        this.state.calification = result.calification
+        
         result.percentage = ((result.correct)*100)/25
-        this.state.percentage = result.percentage
-
+        this.setState({
+            percentage: result.percentage,
+        })
+        
         console.log(result);
         if (result.correct>=2) {
             result.total=true
             console.log(result.total)
-            this.state.result=result.total
+            this.setState({
+                res_final: result.total,
+            })
         }
         else{
             console.log(result.total)
-            this.state.result=result.total
+            this.setState({
+                res_final: result.total,
+            })
         }
 
 
@@ -150,6 +159,7 @@ class PageEvaluationContent extends Component {
 
     SaveDocument(){
         console.log("Guardando...")
+
     }
     ShowDocument(){
         console.log("Mostrando...")
@@ -211,7 +221,7 @@ class PageEvaluationContent extends Component {
                                     <CardText><Input id="c" addon type="radio" name='selection' checked={ this.state.answer === 'c' } onChange={ this.handleAnswerSelected } value="c"/><Label for="c">{ this.state.currentQuestion.c }</Label></CardText>
                                     <CardText><Input id="d" addon type="radio" name='selection' checked={ this.state.answer === 'd' } onChange={ this.handleAnswerSelected } value="d"/><Label for="d">{ this.state.currentQuestion.d }</Label></CardText>
                                     <CardText><Input id="e" addon type="radio" name='selection' checked={ this.state.answer === 'e' } onChange={ this.handleAnswerSelected } value="e"/><Label for="e">{ this.state.currentQuestion.e }</Label></CardText>
-                                    {this.state.result? (
+                                    {this.state.res_final? (
                                         <div>
                                         <center>
                                             <Modal isOpen={this.state.modal} toggle={this.handleCompleteTest} className={this.props.className}>
@@ -241,6 +251,7 @@ class PageEvaluationContent extends Component {
                                                         <Button color="primary" size="sm" onClick={this.toggle}>Confirmar</Button>{' '}
                                                         <Button color = "primary" size="sm" onClick={this.ShowDocument}>Mostrar Documento</Button>
                                                         <Button color = "primary" size="sm" onClick={this.SaveDocument}>Guardar PDF</Button>
+                                                        
                                                     </ButtonGroup>
                                                 </ModalFooter>
                                             </Modal>

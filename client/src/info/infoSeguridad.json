@@ -1,0 +1,433 @@
+{
+	"infoSeguridad" : [
+		{
+			"title" : "Nuestros residuos",
+			"description" : [{
+					"title": "¿Que es un residuo?",
+					"definitions":null,
+					"description" : "Es cualquier material que su producto o dueño considera que no tienen valor suficiente para retenerlo.",
+					"lists": null,
+					"others": null,
+					"imgPath": "Residuos.jpg"
+				},
+				{
+					"title": "¿Que es un residuo peligroso?",
+					"definitions":null,
+					"description": "Se refiere a un desecho considerado peligroso por tener propiedades intrínsecas que presentan riesgos en la salud. Las propiedades peligrosas son toxicidad, inflamabilidad, reactividad química, corrosividad, explosividad, reactividad, radioactividad o de cualquier naturaleza que provoque daño a la salud humana y al medio ambiente.",
+					"lists":[{
+							"description":"Principalmente los residuos peligrosos que se producen en nuestra empresa son los siguientes:",
+							"options": [
+								"Guantes y paños impregnados con aceites.",
+								"Envases vacíos de productos químicos.",
+								"EPP contaminados."]
+						},{
+							"description":"Fundamentalmente la generación de residuos peligrosos se debe a:",
+							"options": [
+								"Cambios de lubricantes.",
+								"Cambio de neumáticos.",
+								"Cambio de baterías.",
+								"Resto de generación de espumas.",
+								"Mantenciones preventivas y correctivas."]
+						}],
+					"others": [
+						"También están los residuos que se generan producto del mantenimiento de luminarias (tubos fluorescentes) y en áreas administrativas (pilas, desechos informáticos, etc).",
+						"Una vez generado el residuo se debe almacenar inmediatamente solo en el sitio designado para ello."],
+					"imgPath": "Residuos_peligrosos.jpg"				
+				},
+				{
+					"title": "¿Que es un residuo NO peligroso?",
+					"definitions":null,
+					"description": "Un residuo no peligroso es todo aquel que no posee propiedades peligrosas para la salud humana y al medio ambiente. Los residuos no peligrosos pueden ser:",
+					"lists": [{
+							"description": "Residuos no peligrosos reciclables",
+							"options": ["vidrios, cartones latas restos de pallets de madera tapas plásticas, residuos asimilables a la basura domiciliaria."]
+						},
+						{
+							"description": "Residuos que no pueden ser segregados",
+							"options": ["Tierra, polvo, esquirlas de vidrio, astillas de madera."]
+						},
+						{
+							"description": "Todos los residuos deben ser segregados y depositados correctamente en contenedores identificados según color.",
+							"options": [
+								"Contenedor amarillo: Plásticos.", 
+								"Contenedor azul: Papeles y cartones.", 
+								"Contenedor verde: Basura.", 
+								"Contenedor rojos: Residuos peligrosos."]
+						}
+					],
+					"others": ["Todo residuo tanto peligrosos y no peligrosos deben ser retirados por empresas que cuenten con su respectiva autorización sanitaria para esta tarea y de esta manera asegurarnos de que los residuos generados por Colchones Rosen están siendo depositados, transferidos y tratados de la forma correcta."],
+					"imgPath": "Residuos.jpg"
+				},
+				{
+					"title": "Costos del mal manejo de residuos",
+					"definitions":null,
+					"description": "Los costos de un mal manejo de residuos son ambientales. Los residuos pueden contaminar las aguas superficiales, aguas subterráneas, el suelo y el aire, que causa más problemas para los seres humanos, otras especies y los ecosistemas. El tratamiento y eliminación de residuos produce cantidades significativas de gases de invernadero (GEI), principalmente metano, que contribuyen significativamente al cambio climático global.",
+					"lists": null,
+					"others": null,
+					"imgPath": "costos_de_residuos.jpg"
+				}
+			]
+		},
+		{
+			"title": "Las 3R de la ecología",
+			"description": [{
+					"title": "Reducir",
+					"definitions":null,
+					"description": "“Reduce la basura que se produce”.",
+					"lists": [
+						{
+							"description": "Para lograr eso se pueden realizar:", 
+							"options": ["Reduce los papeles y envoltorios que se adquieren como envoltorio de una compra de materias primas, alimentos, etc.",
+								"Reduce el uso de productos tóxicos y contaminantes.",
+								"Cuando en el hogar se realicen compras, lleve una bolsa desde su casa."]
+						}],
+					"others": null,
+					"imgPath": "3r.jpg"
+				},
+				{
+					"title": "Reciclar",
+					"definitions":null,
+					"description": "“Reciclar la basura que se produce”.",
+					"lists": [
+						{
+							"description": "Para lograr eso se pueden realizar:", 
+							"options": ["Al adquirir algún producto en particular siempre se debe prestar atención a que el envase sea reciclable.",
+								"Unos ejemplos de basura que se pueden reciclar son: Papel, cartón, vidrio, hojalata, aluminio, plomo, zinc, plásticos."]
+						}],
+					"others": null,
+					"imgPath": "3r.jpg"
+				},
+				{
+					"title": "Reutilizar ",
+					"definitions":null,
+					"description": "“Reutilizar los envases u otras cosas que se utilicen”. No se debe de tirar la basura todo aquello que puede ser usado otra vez ya que cuantas cosas más se reutilicen, menos basura se producirá.",
+					"lists": [
+						{
+							"description": "Para lograr eso se pueden realizar:", 
+							"options": ["Al adquirir algún producto en particular siempre se debe prestar atención a que el envase sea reciclable.",
+								"Unos ejemplos de basura que se pueden reciclar son: Papel, cartón, vidrio, hojalata, aluminio, plomo, zinc, plásticos."]
+						}],
+					"others": null,
+					"imgPath": "3r.jpg"
+				}
+			]
+		},
+		{
+			"title": "El Extintor",
+			"description": [{
+					"title": "Como usarlo",
+					"definitions": [
+						{ 
+							"name": "Triángulo de fuego:",
+							"definition": "El fuego puede ser representado por un triángulo equilátero llamado triángulo del fuego, en el que se simbolizan en cada uno de sus lados los factores esenciales para que el mismo exista."
+						},
+						{ 
+							"name": "Combustible:",
+							"definition": "Es toda sustancia susceptible de arde, estamos rodeados de materiales combustibles, por ejemplo: maderas, gasolina, gas licuado, productos, químicos, espumas, fibras, materiales textiles, etc."
+						},
+						{ 
+							"name": "Calor:",
+							"definition": "Es la transferencia de energía entre diferentes cuerpos o diferentes zonas de un mismo cuerpo que se encuentran a distintas temperaturas. Este flujo siempre ocurre desde el cuerpo de mayor temperatura hace el cuerpo de menor temperatura, ocurriendo la transferencia de calor hasta que ambos cuerpos se encuentren en equilibrio térmico."
+						},
+						{
+							"name": "Oxígeno:",
+							"definition": "EL oxígeno representa aproximadamente el 20,9% en volumen de las composición de la atmósfera terrestre en altura del nivel del mar. Es un gas incoloro, inodoro (sin olor), La reacción de combustible puede llevarse a cabo directamente con el oxígeno o bien con una mezcla de sustancias que contengan oxígeno, llamada “comburente”, siendo el aire atmosférico el comburente más habitual."
+						}],
+					"description": "Conocer sobre el manejo de extintores constituye un deber de todo trabajador en chile y tiene como objetivo dar respuesta rápida a un posible evento de fuego incipiente a Mago en ningún caso pretende que el trabajador actúen un siniestro poniendo en riesgo su vida. Colchones Rosen lo entienden y así deja de manifiesto que la respuesta frente a un eventual siniestro debe ser siempre por parte de los bomberos, nunca por parte de los trabajadores de Colchones Rosen. Lo primordial es resguardarse en las zonas de seguridad definidas en los distintos puntos de la planta. Sin embargo Rosen cuenta con una brigada de emergencias, la cual se encuentra preparada y constituida para enfrentar siniestros, la cual cuenta con los equipos necesarios y la capacitación correspondiente. Sin embargo, la brigada de incendios de Rosen es solo para contener EL SINIESTRO, hasta que lleguen al lugar los bomberos.",
+					"lists": null,
+					"others": null,
+					"imgPath": "extintor_uso.jpg"
+				},
+				{
+					"title": "Reacción en cadena.",
+					"definitions":null,
+					"description": "Cuando una sustancia se calienta, está desprende vapores y gases, los cuales se combina con el oxígeno del aire que en presencia de una fuente de ignición arden. En el momento en que estos vapores arden, se libera gran cantidad de calor. Si el calor es comprendido no es suficiente para generar más vapores del material combustible, el fuego se apaga.",
+					"lists": null,
+					"others": ["Si la cantidad de calor desprendida es elevada, el material combustible sigue descomponiéndose y desprendiendo más vapores que se combinan con el oxígeno, se inflaman, y el fuego aumenta, verificando la reacción en cadena."],
+					"imgPath": "extintor_uso.jpg"
+				},
+				{
+					"title": "Cómo detener la reacción en cadena.",
+					"definitions":null,
+					"description": "La reacción en cadena es posible detener, aplicando al fuego sustancias químicas especiales, que producen reacciones complejas que inhiben el proceso. Ejemplos: Polvo químico seco (P.Q.S)",
+					"lists": null,
+					"others": null,
+					"imgPath": "extintor_uso.jpg"
+				}
+			]
+		},
+		{
+			"title": "Carga y descarga",
+			"description": [{
+					"title": "Procedimiento",
+					"definitions": null,
+					"description": "",
+					"lists": [
+							{
+								"description": "Descripción del procedimiento",
+								"options": [
+									"Cada operador es responsable de la operación de su máquina, debiendo estar en condiciones óptimas para operar. Al inicio y término de cada turno, debe preocuparse de que la grúa está cargada con combustible, gas licuado del petróleo.",
+									"La velocidad de las grúas horquillas no debe ser superior a los 20 km/h en el entorno de la planta.",
+									"Al llegar a una esquina o intersección no regulada, toque la bocina para alertar su aproximación.",
+									"Al aproximarse a la carga, izar o bajar la carga de altura, debe hacerse siempre con el máximo de precaución.",
+									"Si al transportar pallets estos obstruyen la visibilidad, la operación debe realizarse conduciendo en reversa.",
+									"En el patio de carga, siempre tiene preferencia la máquina que transita paralela a los camiones, por sobre la que cruza la línea de estacionamiento de camiones.",
+									"Nunca inspeccionar un pallet o cualquier tipo de carga por debajo de ella, siempre debe bajarse a nivel del piso.",
+									"Frenar completamente la máquina antes de cambiar el sentido de la marcha.",
+									"La distancia mínima entre una máquina y otra es el equivalente al largo de tres grúas.",
+									"Al término de cada turno se debe dejar la grúa estacionada en el lugar correspondiente, retire la llave y verificar que las luces quedan apagadas para evitar la descarga de la batería."]
+							}
+						],
+					"others": null,
+					"imgPath": "carga_y_descarga.jpg"
+				}
+			]
+		},
+		{
+			"title": "Seguridad en grúa horquilla",
+			"description": [{
+					"title": "Dispositivos",
+					"definitions": [
+						{ 
+							"name": "Bocina:",
+							"definition": "Elemento sonoro que permite advertir la presencia de la máquina a las personas que se encuentran alrededor de ella y prevenir choques y/o atropellos."
+						},
+						{ 
+							"name": "Cinturón de seguridad:",
+							"definition": "Cinta retráctil que permite que el conductor permanezca en su asiento y que no se golpee contra el parabrisas y/o sea aplastado por la grúa en caso de volcamiento."
+						},
+						{ 
+							"name": "Baliza:",
+							"definition": "Equipo de iluminación giratorio para advertir la presencia de la grúa."
+						}],
+					"description": null,
+					"lists": [
+							{
+								"description": "Obligaciones de los operadores.",
+								"options": [
+									"Verificar el perfecto estado de su máquina al iniciar el turno.",
+									"Eespetar las normas de tránsito establecidas internamente por Colchones Rosen.",
+									"Utilizar en todo momento los elementos de protección personal. Obligatorio: chaleco reflectante, zapatos de seguridad, protección visual y auditiva según su área de trabajo.",
+									"Dar cuenta inmediatamente al jefe de turno o jefe directo de cualquier desperfecto que detecte en su máquina.",
+									"No encontrarse bajo los efectos del alcohol o con alguna enfermedad que requiera medicamentos que causen letardia en sus reacciones.",
+									"Utilizar en todo momento el cinturón de seguridad.",
+									"Cada vez que deba abandonar la máquina, baje completamente del carro , deja las horquillas a nivel del piso, aplique el freno de estacionamiento, detenga el motor y retire la llave contacto.",
+									"Verificar el funcionamiento de baliza, bocina y portar en todo momento licencias de conducir clase D."]
+							},{
+								"description": "PROHIBICIONES Y FALTAS GRAVES",
+								"options": [
+									"Transportar personas junto al asiento del operador.",
+									"Elevar o bajar de cualquier altura a una persona en las horquillas o sobre un ballet.",
+									"Realizar acciones temerarias con la máquina.",
+									"Cargar o descargar un camión que no estacione completamente alineado el remolque o semirremolque con la cabina del conductor.",
+									"Utilizar teléfono celular, reproductores de música o cualquier dispositivo que distraiga al operador durante su labor.",
+									"Colocar contrapseo en la parte posterior de la grúa horquilla para elevar mayor carga a la permitida.",
+									"Circular con la carga elevada.",
+									"Ingerir alimentos, comestibles y bebestibles, operando la grúa horquilla."]
+							},{
+								"description": "ALMACENAMIENTO DE CARGA",
+								"options": [
+									"La carga debe estar estable, compacta y uniformemente distribuida en el pallet.",
+									"El descenso y el alzado de la carga se harán siempre en horizontal y en posición centrada.",
+									"El posado y el alzado de la carga se harán siempre horizontal en posición centrada.",
+									"Las entradas y salidas de las horquillas en las unidades de trabajo deben ser limpias y sin que produzcan golpes, roces o arrastras."]
+							},{
+								"description": "MEDIDAS DE SEGURIDAD EN EL ALMACENAMIENTO Y DESCARGA DE MATERIALES",
+								"options": [
+									"No realice concentraciones de carga en la viga, distribuirla uniformemente a lo largo de todo el larguero del material a almacenar.",
+									"EL descenso y posado brusco de la carga puede provocar la deformación permanente del larguero y la pérdida de sus condiciones de resistencia.",
+									"Las alzadas bruscas pueden dañar el larguero superior. Los personas de seguridad impedirán, si el golpe no es excesivamente fuerte, que se salga de su punto de sujeción.",
+									"Excentricidad de la carga, Al revisar la carga hacia delante o hacia atrás respecto de su posición centrada, se producen tensiones descompensadas sobre las vigas que componen el nivel."]
+							},{
+								"description": "QUÉ HACER EN CASO DE VOLCAMIENTO",
+								"options": [
+									"Manipule cargas que están dentro de la capacidad máxima establecida para la grúa, No trabaje sobre terrenos irregulares. Si no puede evitarlos transite lentamente.",
+									"No haga movimientos, giros, y/o detenciones rápidas. No circule ni gire en terrenos con inclinación.",
+									"Nunca incline cargas elevadas hacia delante. Transite solo con cargas debidamente centradas."]
+							},{
+								"description": "EL OPERADOR DEBE TENER PRESENTE LOS SIGUIENTES PUNTOS ANTE UN VOLCAMIENTO:",
+								"options": [
+									"NUNCA salte de la grua si esta se comienza a volcar, permanezca en su asiento.",
+									"Permanezca en la grúa con el cinturón de seguridad puesto. Sujetarse fuertemente del volante, apoye los pies contra el piso e inclinese en sentido contrario a la dirección del impacto."]
+							},{
+								"description": "CARGAR EL ESTANQUE",
+								"options": [
+									"Estacione la grúa horquilla en la zona de carga de manera que el estanque de la grúa quede posicionado frente al equipo dispensador.",
+									"Detenga el motor y corte el contacto de la grúa.",
+									"Saque la tapa plástica que cubre la válvula de llenado del estanque.",
+									"Retire la pistola surtidora del equipo dispensador, y conectela atornillando en la válvula de llenado del estanque.",
+									"Coloque el interruptor del dispensador en posición “ON” y accionará la bomba.",
+									"Apreté el gatillo de la pistola surtidora hasta llenar el estanque en un  80% como máximo, según el marcador del estanque.",
+									"Coloque el interruptor del dispensador en “OFF” y detendrá la bomba.",
+									"Desconecte la pistola de la válvula de llenado y guárdela en el equipo dispensador.",
+									"Coloque la tapa plástica en la válvula de llenado del estanque."]
+							}
+						],
+					"others": null,
+					"imgPath": "Grua_horquilla.jpg"
+				}
+			]
+		},
+		{
+			"title": "Emergencias",
+			"description": [{
+					"title": "Emergencias",
+					"definitions": [
+						{ 
+							"name": "Alerta:",
+							"definition": "La alerta es un estado declarado, indica mantenerse atento. Ejemplos para declarar alerta “se maneja información de un incendio cercano que puede comprometer el recinto”, “las fuertes precipitaciones han inundado zonas muy cercanas a nuestro recinto”."
+						},
+						{ 
+							"name": "Alarma:",
+							"definition": "es una señal o aviso sobre algo que va a suceder en forma inminente o ya está ocurriendo. Por lo tanto su activación significa ejecutar las instrucciones establecidas para una emergencia."
+						},
+						{ 
+							"name": "Plan específico de emergencias:",
+							"definition": "Ordenamiento de disposiciones, acciones y elementos necesarios propios de cada recinto y de su respectivo entorno inmediato, articulados de manera tal de dar una respuesta eficaz frente a una emergencia. Debe ser conocidos por toda la empresa."
+						},
+						{ 
+							"name": "Evacuación:",
+							"definition": "Procedimiento obligatorio, ordenado, responsable, rápido y dirigido de desplazamiento masivo de los ocupantes de un recinto hacia la zona de seguridad de este, frente a una emergencia real o simulada."
+						},
+						{ 
+							"name": "Vías de evacuación:",
+							"definition": "Son aquellas vías que estando siempre disponibles para permitir la evacuación (escaleras de emergencia o servicio, pasillos, patios interiores etc.) ofrecen una mayor seguridad frente al desplazamiento masivo y que conducen a la zona de seguridad de un recinto."
+						},
+						{ 
+							"name": "Zona de seguridad:",
+							"definition": "Es aquel lugar físico de la infraestructura que posee una mayor capacidad de protección masiva frente a los riesgos derivados de una emergencia y que además ofrece las mejores posibilidades de abandono definitivo de un recinto."
+						}],
+					"description": "Es una situación que pone en riesgo la integridad fisica y psicologica de los ocupantes de un recinto de trabajo y que requiere de una capacidad de respuesta organizada y oportuna de toda la empresa a fin de reducir al máximo los potenciales daños a las personas.",
+					"lists": [
+							{
+								"description": "Situaciones de emergencia de origen natural:",
+								"options": [
+									"Sismos.",
+									"Aluviones.",
+									"Inundaciones.",
+									"Erupciones volcánicas.",
+									"Tsunamis",
+									"Otros."]
+							},
+							{
+								"description": "Situaciones de emergencia de origen humano:",
+								"options": [
+									"Incendios.",
+									"Atentados explosivos, incendiarios etc.",
+									"Asaltos.",
+									"Otros."]
+							}
+						],
+					"others": null,
+					"imgPath": "emergencia.jpg"
+				},{
+					"title": "Evacuación",
+					"definitions":[{
+						"name": "Vías de evacuación y zona de seguridad:",
+						"definition": "Deben estar claramente señalizadas y libres de obstáculos. Los trabajadores evacuados deberán reunirse en un punto previamente designado, por lo tanto la instrucción entregada en las charlas y la señalización dispuesta debe ser clara sobre la ubicación de las zonas de seguridad."
+					}],
+					"description": "",
+					"lists": [{
+							"description": "En palabras sencillas es el acto de retirar a personas de un lugar o zona con situación de emergencia, pero para que esta acción sea exitosa el personal debe estar capacitado en esta materia y no olvidar:",
+							"options": [
+								"Evacuar de forma ordenada y tranquila.",
+								"Saber a dónde dirigirse, zona de seguridad.",
+								"Conocer vías de evacuación.",
+								"Usar pasamanos.",
+								"No correr."]
+						}],
+					"others": null,
+					"imgPath": "Evacuacion.png"
+				},{
+					"title": "Como actuar",
+					"definitions":null,
+					"description": "",
+					"lists": [{
+							"description": "",
+							"options": [
+								"Si percibe una emergencia averigue de que se trata.",
+								"Evalúe rápidamente la magnitud de la situación.",
+								"Comunique a sus superior o al monitor, para que de la alarma interna y externa.",
+								"Al escuchar la alarma siga lo que dice el plan de evacuación.",
+								"Interrumpa su actividad, detenga equipos y maquinaria si corresponde, corte fuentes de suministro de gas, electricidad u otros que puedan ocasionar mas daño.",
+								"Siga las instrucciones del plan de emergencia de su empresa o a los monitores.",
+								"Diríjase a las zonas de seguridad por las vías de evacuación previamente señalizadas, estas se encuentran en los planos de emergencia.",
+								"Verifique que está todo el personal y regrese a sus labores cuando este todo en normalidad."]
+						},{
+							"description": "Frente a Sismos (Durante).",
+							"options": [
+								"Desconectar o apagar artefactos encendidos, eléctricos o de gas.",
+								"Permanecer bajo vigas, pilares, muebles o lugares de seguridad preestablecidos.",
+								"Alejarse de ventanales o puertas de vidrio.",
+								"Seguir las instrucciones ante el aviso de evacuación del recinto, salga con paso rápido, por las vías de evacuación señaladas (no corra) hasta la zona de seguridad preestablecida, sirva de guía a visitas o clientes.",
+								"Aléjese de murallas altas, postes de alumbrado eléctrico y árboles altos si está en el exterior."]
+						},
+						{
+							"description": "Frente a Sismos (Después).",
+							"options": [
+								"Evacuar solo si así se dispone.",
+								"Ayudar a personas que tengan alguna dificultad.",
+								"No regresar hasta que se autorice.",
+								"Verificar focos de incendios, escapes de gas o fallas eléctricas.",
+								"Realizar solo llamados telefónicos indispensables."]
+						}],
+					"others": null,
+					"imgPath": "plan_de_emergencias.jpg"
+				}
+			]
+		},
+		{
+			"title": "Cultura",
+			"description": [{
+					"title": "Seguridad",
+					"definitions": [{
+						"name": "Definición:",
+						"definition" : "Conjunto de principios, percepciones y creencias que comparten los miembros de una organización con respecto a la prevención de accidentes del trabajo y enfermedades profesionales sobre los cuales se construye el DECIDIR de la gestion de prevencion de riesgos."
+					},{
+						"name":"",
+						"definition" : "La prevención de accidentes es responsabilidad del departamento de prevención de riesgos."
+					},{
+						"name":"",
+						"definition" : "La prevención de accidentes es una responsabilidad compartida por ejecutivos, supervisores, trabajadores y experto en prevención de riesgos, es decir, de todos los miembros de la organización."
+					},{
+						"name":"Comportamientos permisivos:",
+						"definition" : "Es la predisposición que tenemos para identificar los comportamientos permisivos para modificarlos a comportamientos correctos o no permisivos."
+					}],
+					"description": "",
+					"lists": [
+							{
+								"description": "Actos incorrectos comunes realizados por trabajadores.",
+								"options": [
+									"Reparar equipo electrónico sin autorización.",
+									"Correr por los pasillos.",
+									"Lubricar equipo en movimiento.",
+									"Fumar en lugares prohibidos.",
+									"Usar superficies de trabajo inestables.",
+									"Encaramarse en estanterías.",
+									"No usar guantes de seguridad.",
+									"No usar zapatos de seguridad.",
+									"Operar grúas horquillas a exceso de velocidad.",
+									"Realizar sobreesfuerzo más allá de su capacidad física.",
+									"Obstruir su visión."]
+							},{
+								"description": "Actos Críticos.",
+								"options": [
+									"Trabajar en altura sin usar cola y cinturón de seguridad.",
+									"Conducir grúa horquilla a exceso de velocidad.",
+									"Manipular inadecuadamente líquidos inflamables."]
+							},{
+								"description": "Condiciones Críticas.",
+								"options": [
+									"Instalaciones eléctricas no reglamentarias o defectuosas.",
+									"Maquinarias sin protección de sus partes en movimiento.",
+									"Extintores obstruidos o en mal estado.",
+									"Pasillos de tránsito con exceso de materiales botados, o con exceso de cera o con líquidos aceitosos."]
+							}
+						],
+					"others": null,
+					"imgPath": "seguridad.jfif"
+				}
+			]
+		}
+	]
+}
