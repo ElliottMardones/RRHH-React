@@ -75,7 +75,8 @@ class Header extends Component {
             }
             nis = nis.concat([
                 { href: "/#Page1Content", title: "Módulo de Inducción" },
-                { href: "/#Page2Content", title: "Módulo de Seguridad" }
+                { href: "/#Page2Content", title: "Módulo de Seguridad" },
+                { href: "/#PageEvaluationContent", title: "Evaluación", fa: "th-list" }
             ]);
         }
         return nis.map(this.getNavItem.bind(this)).filter(filterNull);
