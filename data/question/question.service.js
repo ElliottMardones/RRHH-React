@@ -19,8 +19,8 @@ async function getById(id) {
     return await Question.findById(id);
 }
 
-async function getByTest(test) {
-    const test = await Test.findById(test);
+async function getByTest(id) {
+    const test = await Test.findById(id);
     if (!test) throw 'Test not found';
     return await Question.find({ test: test._id });
 }

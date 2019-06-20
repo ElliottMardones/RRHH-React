@@ -46,14 +46,6 @@ class AdminContent extends Component {
                     </div>
                   </Button>
                 </Col>
-                <Col lg="3" md="4" sm="6" xs="12">
-                  <Button href="#AdminUsersContent" block onClick={this.handlerLinkClick}>
-                    <div className="text-center">
-                      <h1><span className="fa fa-users" /></h1>
-                      <span>Cursos</span>
-                    </div>
-                  </Button>
-                </Col>
               </Row>
             </CardBody>
           </Card>

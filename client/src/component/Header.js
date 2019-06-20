@@ -86,10 +86,10 @@ class Header extends Component {
         const { user, filterNull } = this.props.stateApp;
         let nis = []
         if (user) {
-            nis = nis.concat([
+            /*nis = nis.concat([
                 { href: "/#MessagesContent", title: "Mensajes", fa: "envelope", count: 1 },
                 { href: "/#NotificationsContent", title: "Notificaciones", fa: "bell", count: 2 }
-            ]);
+            ]);*/
         } else {
             nis = nis.concat([
                 { href: "/#LoginContent", title: "Entrar", fa: "sign-in" },
@@ -118,12 +118,12 @@ class Header extends Component {
                                                 <span className="fa fa-user"></span> {this.props.stateApp.user.name} <span className="caret"></span>
                                             </DropdownToggle>
                                             <DropdownMenu right>
-                                                <DropdownItem onClick={this.handlerLinkClick} href="/#ProfileContent"><span className="fa fa-user" /> Mi perfil</DropdownItem>
+                                                {/*<DropdownItem onClick={this.handlerLinkClick} href="/#ProfileContent"><span className="fa fa-user" /> Mi perfil</DropdownItem>
                                                 <DropdownItem onClick={this.handlerLinkClick} href="/#DatasContent"><span className="fa fa-cog" /> Mis datos</DropdownItem>
                                                 <DropdownItem onClick={this.handlerLinkClick} href="/#PasswordContent"><span className="fa fa-lock" /> Cambiar clave</DropdownItem>
-                                                <DropdownItem divider />
+                                    <DropdownItem divider />*/}
                                                 <DropdownItem onClick={this.handlerLinkClick} href="/#LoginContent"><span className="fa fa-sign-out" /> Salir</DropdownItem>
-                                                <DropdownItem onClick={this.handlerLinkClick} href="/#HelpContent"><span className="fa fa-question-circle" /> Ayuda</DropdownItem>
+                                                {/*<DropdownItem onClick={this.handlerLinkClick} href="/#HelpContent"><span className="fa fa-question-circle" /> Ayuda</DropdownItem>*/}
                                             </DropdownMenu>
                                         </UncontrolledDropdown>
                                     )

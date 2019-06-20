@@ -6,6 +6,7 @@ const testService = require('./test.service');
 router.get('/', getAll);
 router.get('/:id', getById);
 router.post('/create', create);
+router.post('/evaluate', evaluate)
 router.put('/:id', update);
 router.delete('/:id', _delete);
 
@@ -35,6 +36,16 @@ function create(req, res, next) {
     if (req.session.user) {
         testService.create(req.body)
             .then(() => res.json({}))
+            .catch(err => next(err));
+    } else {
+        res.status(401).json({ message: 'Unauthorized Access' })
+    }
+}
+
+function evaluate(req, res, next) {
+    if (req.session.user) {
+        testService.evaluate(req.body.id, req.body.questions)
+            .then((result) => res.json({result}))
             .catch(err => next(err));
     } else {
         res.status(401).json({ message: 'Unauthorized Access' })

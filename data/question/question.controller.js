@@ -5,6 +5,7 @@ const questionService = require('./question.service');
 // routes
 router.get('/', getAll);
 router.get('/:id', getById);
+router.get('/test/:id', getByTest);
 router.post('/create', create);
 router.put('/:id', update);
 router.delete('/:id', _delete);
@@ -25,6 +26,16 @@ function getById(req, res, next) {
     if (req.session.user) {
         questionService.getById(req.params.id)
             .then(question => question ? res.json(question) : res.status(404).json({ message: 'Not Found' }))
+            .catch(err => next(err));
+    } else {
+        res.status(401).json({ message: 'Unauthorized Access' })
+    }
+}
+
+function getByTest(req, res, next) {
+    if (req.session.user) {
+        questionService.getByTest(req.params.id)
+            .then(questions => res.json(questions))
             .catch(err => next(err));
     } else {
         res.status(401).json({ message: 'Unauthorized Access' })

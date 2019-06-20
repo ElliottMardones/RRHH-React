@@ -9,8 +9,7 @@ import { Jumbotron,
     DropdownMenu, 
     DropdownItem, 
     ButtonGroup,
-    ButtonDropdown,
-    Media
+    ButtonDropdown
 } from 'reactstrap';
 
 import { infoSeguridad } from '../info/infoSeguridad';
